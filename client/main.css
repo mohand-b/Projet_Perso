@@ -1,0 +1,28 @@
+
+ /*   _             _             _   _             
+ | \ | | __ ___   _(_) __ _  __ _| |_(_) ___  _ __  
+ |  \| |/ _` \ \ / / |/ _` |/ _` | __| |/ _ \| '_ \ 
+ | |\  | (_| |\ V /| | (_| | (_| | |_| | (_) | | | |
+ |_| \_|\__,_| \_/ |_|\__, |\__,_|\__|_|\___/|_| |_|
+                      |___/      					*/
+
+.navbar {background-color: grey; color: white; padding: 10px;}
+.navbar ul {display: flex; flex-direction: row; justify-content: space-around;}
+
+.navbar .current_user {font-weight: bolder;}
+/*fieldset {
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 0;
+    border-style: groove;
+    border-color: threedface;
+    border-image: initial;
+}
+
+fieldset input {padding: 10px;}*/

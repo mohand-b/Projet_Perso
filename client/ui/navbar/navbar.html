@@ -1,0 +1,35 @@
+<template name="navbar">
+	
+	<nav class="navbar">
+		<ul>
+			{{#if currentUser}}
+			<li class="current_user"><i class="fas fa-user"></i> {{currentUser.username}}</li>
+			{{/if}}
+			<li>Mes tickets</li>
+			<li>Mes contributions</li>
+			<li>Classement</li>
+			
+			{{#unless logginIn}}
+			{{#if currentUser}}
+			<li><button class="logout_button logout-js">Déconnexion</button></li>
+			{{else}}
+			<li><button class="login_button login-js">Connexion</button></li>
+			{{/if}}
+			{{/unless}}
+			
+		</ul>
+	</nav>
+	
+</template>
+
+<template name="login">
+
+	<section classe="login">
+	
+		<h3>Formulaire d'inscription</h3>
+		
+		{{> atForm}}
+	
+	</section>
+
+</template>
