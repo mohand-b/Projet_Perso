@@ -1,4 +1,14 @@
-import '../both';
+import { Tickets, Corrections } from '../both';
+import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
+
+import './startup/router';
 import './ui/layout/layout';
+
 import './normalize.css';
 import './main.css';
+
+if (Meteor.isDevelopment) {
+	window.FlowRouter = FlowRouter;
+	window.Tickets = Tickets;
+	window.Corrections = Corrections;
+}

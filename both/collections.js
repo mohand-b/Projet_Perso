@@ -1,0 +1,3 @@
+export const Tickets = new Mongo.Collection('tickets');
+
+export const Corrections = new Mongo.Collection('corrections');
