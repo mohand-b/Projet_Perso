@@ -1,19 +1,27 @@
 <template name="navbar">
 	
-	<nav class="navbar">
-		<ul>
-			{{#if currentUser}}
-			<li class="current_user"><i class="fas fa-user"></i> {{currentUser.username}}</li>
-			{{/if}}
-			<li>Mes tickets</li>
-			<li>Mes contributions</li>
-			<li>Classement</li>
+	<nav>
+		<ul class="navbar d-flex justify-content-around">
+		{{#if currentUser}}
+			
+			<li class="current_user">
+				<i class="fa fa-user"></i> {{currentUser.username}}
+			</li>
+			
+			
+			
+			<li><i class="fa fa-envelope-o"></i> Mes tickets</li>
+			<li><i class="fa fa-handshake-o"></i> Mes contributions</li>
+			
+		{{/if}}
+			
+			<li><i class="fa fa-trophy"></i> Classement</li>
 			
 			{{#unless logginIn}}
 			{{#if currentUser}}
-			<li><button class="logout_button logout-js">Déconnexion</button></li>
+			<li><button class="btn btn-outline-secondary logout-js">Déconnexion</button></li>
 			{{else}}
-			<li><button class="login_button login-js">Connexion</button></li>
+			<li><button class="btn btn-success login-button js-open-login-modal">Connexion</button></li>
 			{{/if}}
 			{{/unless}}
 			
@@ -24,12 +32,12 @@
 
 <template name="login">
 
-	<section classe="login">
+	<div class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{{> atForm}}
+			</div>
+		</div>
+	</div>
 	
-		<h3>Formulaire d'inscription</h3>
-		
-		{{> atForm}}
-	
-	</section>
-
 </template>

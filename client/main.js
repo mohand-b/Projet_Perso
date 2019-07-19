@@ -1,6 +1,7 @@
 import { Tickets, Corrections } from '../both';
 import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 
+import './ui/globalHelpers'
 import './startup/router';
 import './ui/layout/layout';
 

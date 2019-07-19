@@ -1,27 +1,64 @@
+<!-- TICKET_PAGE -->
 <template name="ticket_page">
 	<article>
 		<h3>Page du ticket</h3>
 	</article>
 </template>
 
+<!-- TICKET_PROPOSITION -->
+<template name="ticket_proposition">
+	<article>
+		<button type="submit" class="btn-proposition-ticket">Ouvrir un ticket pour corriger du texte</button>
+	</article>
+</template>
+
+<!-- TICKET_CREATE_FORM -->
 <template name="ticket_create_form">
 	<article>
 		<h3>Formulaire de création d'un ticket</h3>
 		
-		<form>
-			<input type="text">
+		<form class="create-ticket js-create-ticket">
+			<input type="text" placeholder="Titre du contenu à corriger" name="title">
+			<textarea name="content" rows="20" placeholder="Texte à corriger"></textarea>
+			
+			
+			<button type="submit" class="btn-create-ticket btn btn-success">Envoyer le ticket</button>
 		</form>
 	</article>
 </template>
 
+<!-- TICKET_EDIT_FORM -->
 <template name="ticket_edit_form">
 	<article>
 		<h3>Formulaire d'édition d'un article</h3>
 	</article>
 </template>
 
+<!-- TICKET_LIST -->
 <template name="ticket_list">
 	<article>
 		<h3>Derniers tickets</h3>
+		{{#each ticket in tickets}}
+			{{> ticket_single ticket}}
+		{{else}}
+		<h4>Aucun élément à afficher</h4>
+		{{/each}}
 	</article>
+</template>
+
+<!-- TICKET_SINGLE -->
+<template name="ticket_single" >
+	<div class="ticket_card">
+		<div class="left_card">
+			<h4>{{this.title}}</h4>
+			<p>Publié le {{getDisplayDateTime this.createdAt}} par {{getUserFullname this.ownerId}}</p>
+
+			<div class="contributors">
+				<span>x contributeurs</span>
+			</div>
+		</div>
+		<aside class="right_card">
+			<button>Afficher</button>
+		</aside>
+	</div>
 </template>

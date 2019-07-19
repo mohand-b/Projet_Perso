@@ -1,19 +1,18 @@
 <template name="home">
-	<h2>Home</h2>
+	<h2 class="py-4">Home</h2>
 	{{> home_description}}
 	
-	{{> ticket_create_form}}
+	{{#if currentUser}}
+	{{> Template.dynamic template=ticket_creation}}
+	{{/if}}
 	
 	{{> ticket_list}}
-	
 </template>
 
 <template name="home_description">
-
 	<article>
 	 	<p>Les correcteurs automatiques ou les IA en ligne ne suffisent pas aux subtilités de la langue française.</p>
 		
 		<p>Créer un site de collaboration participatif où les utilisateurs auront la possibilité de partager du texte pour qu’il puisse être examiné et corrigé par d’autres utilisateurs du site.</p>
 	</article>
-
 </template>

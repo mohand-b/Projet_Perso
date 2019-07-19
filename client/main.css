@@ -1,5 +1,18 @@
+ /*____   __         __           _ 
+  / ___| /_/ _ __   /_/ _ __ __ _| |
+ | |  _ / _ \ '_ \ / _ \ '__/ _` | |
+ | |_| |  __/ | | |  __/ | | (_| | |
+  \____|\___|_| |_|\___|_|  \__,_|_|*/
+                                    
 
-article {border: 1px solid grey; margin: 10px; padding: 10px;}
+body {font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif"; border: 3px dashed yellow}
+header {background-color: pink; border: 2px solid purple}
+
+main {padding: 0 5%}
+article {border: 1px solid grey; margin: 10px; padding: 10px; font-size: 90%;}
+
+h1, h2 {text-align: center}
+
 
  /*   _             _             _   _             
  | \ | | __ ___   _(_) __ _  __ _| |_(_) ___  _ __  
@@ -8,23 +21,28 @@ article {border: 1px solid grey; margin: 10px; padding: 10px;}
  |_| \_|\__,_| \_/ |_|\__, |\__,_|\__|_|\___/|_| |_|
                       |___/      					*/
 
-.navbar {background-color: grey; color: white; padding: 10px;}
+/*.navbar {background-color: grey; color: white; padding: 10px;}
 .navbar ul {display: flex; flex-direction: row; justify-content: space-around;}
 
-.navbar .current_user {font-weight: bolder;}
-/*fieldset {
-    display: block;
-    margin-inline-start: 2px;
-    margin-inline-end: 2px;
-    padding-block-start: 0.35em;
-    padding-inline-start: 0.75em;
-    padding-inline-end: 0.75em;
-    padding-block-end: 0.625em;
-    min-inline-size: min-content;
-    border-width: 0;
-    border-style: groove;
-    border-color: threedface;
-    border-image: initial;
-}
+.navbar .current_user {font-weight: bolder; border-right: 1px solid white; padding-right: 50px;}
 
-fieldset input {padding: 10px;}*/
+.navbar ul li {display: flex; flex-direction: column; text-align: center}
+.navbar ul li .fa {padding: 10px; font-size: 200%;}*/
+
+.navbar ul li:last-child {display: flex; justify-content: center;}
+
+
+/*_____ _      _        _       
+ |_   _(_) ___| | _____| |_ ___ 
+   | | | |/ __| |/ / _ \ __/ __|
+   | | | | (__|   <  __/ |_\__ \
+   |_| |_|\___|_|\_\___|\__|___/*/
+                                
+
+.create-ticket {display: flex; flex-direction: column;}
+.create-ticket input, .create-ticket textarea {margin: 5px; padding: 10px; max-width: 95%; min-width: 95%;}
+.create-ticket .btn-create-ticket {width: 200px; padding: 10px; margin: 10px auto;}
+
+.ticket_card {border: 1px dashed grey; padding: 10px; margin: 10px; display: flex; flex-direction: row;}
+.ticket_card .left_card {width: 70%;}
+.ticket_card .right_card {width: 20%;}

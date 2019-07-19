@@ -26,3 +26,9 @@ useraccounts:bootstrap
 ostrio:flow-router-extra
 kadira:blaze-layout
 
+mcissel:flow-transition
+fortawesome:fontawesome
+gwendall:template-animations
+alexwine:bootstrap-4
+jamgold:flow-animate-css
+peppelg:bootstrap-3-modal
