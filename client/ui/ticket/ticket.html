@@ -8,7 +8,9 @@
 					
 					<h6 class="card-subtitle text-muted mb-2">Publié le {{getDisplayDateTime ticket.createdAt}} par {{getUserFullname  ticket.ownerId}}</h6>
 					
-					<p class="card-text text-justify">
+					<a href="/ticket/{{ticket._id}}/edit" class="btn btn-primary btn-sm mb-3">Modifier</a>
+					
+					<p class="card-text text-justify" style="white-space: pre-line">
 						{{ticket.content}}
 					</p>
 				</div>
@@ -19,37 +21,57 @@
 
 <!-- TICKET_PROPOSITION -->
 <template name="ticket_proposition">
-	<article>
+	<article class="card my-2">
 		<button type="submit" class="btn-proposition-ticket btn btn-outline-info">Ouvrir un ticket pour corriger du texte</button>
 	</article>
 </template>
 
 <!-- TICKET_CREATE_FORM -->
 <template name="ticket_create_form">
-	<article>
-		<h3>Formulaire de création d'un ticket</h3>
+	<article class="card my-2">
+		<h5 class="card-header">Formulaire de création d'un ticket</h5>
+		
+		<div class="card-body">
 		
 		<form class="create-ticket js-create-ticket">
-			<input type="text" placeholder="Titre du contenu à corriger" name="title">
-			<textarea name="content" rows="20" placeholder="Texte à corriger"></textarea>
 			
+			<input class="form-control" type="text" placeholder="Titre du contenu à corriger" name="title">
+			<textarea class="form-control mb-2" name="content" rows="20" placeholder="Texte à corriger"></textarea>
 			
-			<button type="submit" class="btn-create-ticket btn btn-success">Envoyer le ticket</button>
+			<div class="my-1">
+				<button type="button" class="btn-cancel btn btn-light">Annuler</button>
+				<button type="submit" class="btn-create-ticket btn btn-success">Envoyer le ticket</button>
+			</div>
 		</form>
+		</div>
 	</article>
 </template>
 
 <!-- TICKET_EDIT_FORM -->
 <template name="ticket_edit_form">
-	<article>
-		<h3>Formulaire d'édition d'un article</h3>
+	<article class="card my-2">
+		<h5 class="card-header">Modifier un ticket</h5>
+		
+		<div class="card-body">
+		
+		<form class="edit-ticket js-edit-ticket">
+			
+			<input class="form-control mb-2" type="text" placeholder="Titre du contenu à corriger" name="title" value="{{ticket.title}}">
+			<textarea class="form-control mb-2" name="content" rows="20" placeholder="Texte à corriger">{{ticket.content}}</textarea>
+			
+			<div class="my-1">
+				<a href="/ticket/{{ticket._id}}" class="btn-cancel btn btn-light">Annuler</a>
+				<button type="submit" class="btn-create-ticket btn btn-success">Modifier le ticket</button>
+			</div>
+		</form>
+		</div>
 	</article>
 </template>
 
 <!-- TICKET_LIST -->
 <template name="ticket_list">
 	<article>
-		<h3>Derniers tickets</h3>
+		<h3 class="py-3">Derniers tickets</h3>
 		{{#each ticket in tickets}}
 			{{> ticket_single ticket=ticket}}
 		{{else}}
@@ -60,16 +82,16 @@
 
 <!-- TICKET_SINGLE -->
 <template name="ticket_single" >
-	<div class="ticket_card">
-		<div class="left_card">
-			<h4>{{ticket.title}}</h4>
-			<p>Publié le {{getDisplayDateTime ticket.createdAt}} par {{getUserFullname ticket.ownerId}}</p>
+	<div class="row">
+		<div class="card-body col-sm-8">
+			<h4 class="card-title">{{ticket.title}}</h4>
+			<p class="card-text">Publié le {{getDisplayDateTime ticket.createdAt}} par {{getUserFullname ticket.ownerId}}</p>
 			<div class="contributors">
 				<span>x contributeurs</span>
 			</div>
 		</div>
-		<aside class="right_card">
-			<a href="/ticket/{{ticket._id}}">Afficher</a>
+		<aside class="card-body col-sm-4">
+			<a href="/ticket/{{ticket._id}}" class="btn btn-light btn-sm">Afficher</a>
 		</aside>
 	</div>
 </template>

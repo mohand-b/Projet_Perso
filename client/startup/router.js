@@ -2,33 +2,47 @@ import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 import { FlowTransition } from 'meteor/mcissel:flow-transition';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 
+// Route principale : accueil
 FlowRouter.route('/', {
 	action() {
 		BlazeLayout.render('layout', { main: 'home', ticket_creation: 'ticket_proposition'})
 	}
 })
 
-
+// Route principale : création de ticket, module dynamique
 FlowRouter.route('/create/ticket', {
 	action() {
 		BlazeLayout.render('layout', { main: 'home', ticket_creation: 'ticket_create_form'})
 	}
 })
 	
-	
+// Page du ticket
 FlowRouter.route('/ticket/:ticketId', {
 	action() {
 	BlazeLayout.render('layout', { main: 'ticket_page'})
 	}
 })
 
-
-FlowRouter.route('/login', {
+// Page de mofidication du ticket
+FlowRouter.route('/ticket/:ticketId/edit', {
 	action() {
-		BlazeLayout.render('layout', { main: 'login'})
+	BlazeLayout.render('layout', { main: 'ticket_edit_form'})
 	}
 })
 
+// Page du profil
+FlowRouter.route('/profil', {
+	action() {
+		BlazeLayout.render('layout', { main: 'profil'})
+	}
+})
+
+// Page du classement
+FlowRouter.route('/ladder', {
+	action() {
+		BlazeLayout.render('layout', { main: 'ladder'})
+	}
+})
 
 
 FlowTransition.addTransition({

@@ -30,6 +30,9 @@ Template.ticket_create_form.events({
 		event.target.title.value = '';
 		event.target.content.value = '';
 
+	},
+	'click .btn-cancel'(event, instance){
+		FlowRouter.go('/')
 	}
 });
 
@@ -46,6 +49,12 @@ Template.ticket_page.helpers({
 Template.ticket_list.helpers({
 	tickets() {
 		return Tickets.find({}, { sort: {createdAt: -1}}).fetch();
+	}
+})
+
+Template.ticket_edit_form.helpers({
+	ticket() {
+		return Tickets.findOne({_id: FlowRouter.getParam('ticketId')});
 	}
 })
 

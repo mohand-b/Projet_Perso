@@ -9,7 +9,7 @@ body {font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Conde
 /*header {background-color: pink; border: 2px solid purple}*/
 
 main {padding: 0 5%}
-article {border: 1px solid grey; margin: 10px; padding: 10px; font-size: 90%;}
+
 
 h1, h2 {text-align: center}
 
@@ -42,8 +42,8 @@ ul {display: block; margin-block-start: 0; margin-block-end: 0;}
 
 .create-ticket {display: flex; flex-direction: column;}
 .create-ticket input, .create-ticket textarea {margin: 5px; padding: 10px; max-width: 95%; min-width: 95%;}
-.create-ticket .btn-create-ticket {width: 200px; padding: 10px; margin: 10px auto;}
 
 .ticket_card {border: 1px dashed grey; padding: 10px; margin: 10px; display: flex; flex-direction: row;}
+
 .ticket_card .left_card {width: 70%;}
 .ticket_card .right_card {width: 20%;}
