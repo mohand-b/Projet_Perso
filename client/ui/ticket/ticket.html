@@ -1,14 +1,26 @@
 <!-- TICKET_PAGE -->
 <template name="ticket_page">
 	<article>
-		<h3>Page du ticket</h3>
+		<div class="card my-2">
+			<div class="card-body">
+				<div class="text-center">
+					<h2 class="card-title">{{ticket.title}}</h2>
+					
+					<h6 class="card-subtitle text-muted mb-2">Publié le {{getDisplayDateTime ticket.createdAt}} par {{getUserFullname  ticket.ownerId}}</h6>
+					
+					<p class="card-text text-justify">
+						{{ticket.content}}
+					</p>
+				</div>
+			</div>
+		</div>
 	</article>
 </template>
 
 <!-- TICKET_PROPOSITION -->
 <template name="ticket_proposition">
 	<article>
-		<button type="submit" class="btn-proposition-ticket">Ouvrir un ticket pour corriger du texte</button>
+		<button type="submit" class="btn-proposition-ticket btn btn-outline-info">Ouvrir un ticket pour corriger du texte</button>
 	</article>
 </template>
 
@@ -39,7 +51,7 @@
 	<article>
 		<h3>Derniers tickets</h3>
 		{{#each ticket in tickets}}
-			{{> ticket_single ticket}}
+			{{> ticket_single ticket=ticket}}
 		{{else}}
 		<h4>Aucun élément à afficher</h4>
 		{{/each}}
@@ -50,15 +62,14 @@
 <template name="ticket_single" >
 	<div class="ticket_card">
 		<div class="left_card">
-			<h4>{{this.title}}</h4>
-			<p>Publié le {{getDisplayDateTime this.createdAt}} par {{getUserFullname this.ownerId}}</p>
-
+			<h4>{{ticket.title}}</h4>
+			<p>Publié le {{getDisplayDateTime ticket.createdAt}} par {{getUserFullname ticket.ownerId}}</p>
 			<div class="contributors">
 				<span>x contributeurs</span>
 			</div>
 		</div>
 		<aside class="right_card">
-			<button>Afficher</button>
+			<a href="/ticket/{{ticket._id}}">Afficher</a>
 		</aside>
 	</div>
 </template>

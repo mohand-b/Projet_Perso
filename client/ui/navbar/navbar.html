@@ -1,27 +1,27 @@
 <template name="navbar">
 	
 	<nav>
-		<ul class="navbar d-flex justify-content-around">
+		<ul class="row">
 		{{#if currentUser}}
 			
-			<li class="current_user">
-				<i class="fa fa-user"></i> {{currentUser.username}}
+			<li class="current_user col">
+				 {{currentUser.username}}
 			</li>
 			
 			
 			
-			<li><i class="fa fa-envelope-o"></i> Mes tickets</li>
-			<li><i class="fa fa-handshake-o"></i> Mes contributions</li>
+			<li class="col"> Mes tickets</li>
+			<li class="col">Mes contributions</li>
 			
 		{{/if}}
 			
-			<li><i class="fa fa-trophy"></i> Classement</li>
+			<li class="col">Classement</li>
 			
 			{{#unless logginIn}}
 			{{#if currentUser}}
-			<li><button class="btn btn-outline-secondary logout-js">Déconnexion</button></li>
+			<li class="col"><button class="btn btn-outline-secondary logout-js">Déconnexion</button></li>
 			{{else}}
-			<li><button class="btn btn-success login-button js-open-login-modal">Connexion</button></li>
+			<li class="col"><button class="btn btn-success login-button js-open-login-modal">Connexion</button></li>
 			{{/if}}
 			{{/unless}}
 			
