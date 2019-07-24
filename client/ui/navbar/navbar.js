@@ -10,6 +10,10 @@ Template.navbar.events({
 	{
 		FlowRouter.go('/ladder')
 	},
+	'click .contributions-js'(event, instance)
+	{
+		FlowRouter.go('/mycontributions')	
+	},
 	'click .js-open-login-modal'(event, instance) {
 		Modal.show('login')
 	},

@@ -1,4 +1,4 @@
-import { Tickets, Corrections } from '../both';
+import { Tickets, Corrections, UsersActivity } from '../both';
 import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 
 import './ui/globalHelpers'
@@ -12,4 +12,5 @@ if (Meteor.isDevelopment) {
 	window.FlowRouter = FlowRouter;
 	window.Tickets = Tickets;
 	window.Corrections = Corrections;
+	window.UsersActivity = UsersActivity;
 }

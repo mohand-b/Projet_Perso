@@ -1,61 +1,88 @@
-import { Tickets } from '../../../both';
+import { Tickets, Corrections, UsersActivity } from '../../../both';
 
 import './ticket.html';
 
+// ----------- EVENTS
+
+// Évènements liés au template "ticket_proposition"
 Template.ticket_proposition.events({
 	'click .btn-proposition-ticket'(event, instance) {
 		FlowRouter.go('/create/ticket')
 	},
 });
 
+// Évènements liés au template "ticket_create_form"
 Template.ticket_create_form.events({
+	
 	'submit .js-create-ticket'(event, instance) {
 		event.preventDefault();
 		
 		const title = event.target.title.value;
 		const content = event.target.content.value;
 		
-		let ticketDoc = {
-			title: title,
-			content: content,
-			createdAt: new Date(),
-			ownerId: Meteor.userId(),
-			open: true,
-			
-		};
-
-		
-		Tickets.insert(ticketDoc);
-		
-		event.target.title.value = '';
-		event.target.content.value = '';
-
+		// Appel de la méthode créée pour la création d'un ticket
+		Meteor.call('insertTicket', {title: title, content: content},
+				   (err, res) => {
+			if(!err) {
+				event.target.title.value = '';
+				event.target.content.value = '';
+			}
+		})
 	},
+	
 	'click .btn-cancel'(event, instance){
 		FlowRouter.go('/')
 	}
 });
 
+// Évènements liés au template "ticket_edit_form"
+Template.ticket_edit_form.events({
+	// Modifier un ticket
+	'submit .js-edit-ticket'(event, instance) {
+		event.preventDefault()
+		
+		const title = event.target.title.value
+		const content = event.target.content.value
+		
+		Meteor.call('updateTicket', FlowRouter.getParam('ticketId'),{ title: title, content: content},
+				   (err, res) => {
+			if(!err) {
+				FlowRouter.go('/ticket/:ticketId', {ticketId: FlowRouter.getParam('ticketId')})
+			}
+		})
+	}
+})
 
+// Évènements liés au template "ticket_page"
+Template.ticket_page.events({
+	'click .js-delete-ticket'(event, instance){
+	
+		Meteor.call('removeTicket', FlowRouter.getParam('ticketId'),
+				   (err, res) => {
+			if(!err) FlowRouter.go('/')
+		})		
+	}
+})
 
-// HELPERS
+// ----------- HELPERS
 
 Template.ticket_page.helpers({
+	// Ticket affiché sur la page
 	ticket() {
 		return Tickets.findOne({_id: FlowRouter.getParam('ticketId')});
 	}
 })
 
 Template.ticket_list.helpers({
+	// Liste des tickets triés par date
 	tickets() {
 		return Tickets.find({}, { sort: {createdAt: -1}}).fetch();
 	}
 })
 
 Template.ticket_edit_form.helpers({
+	// Ticket affiché sur la page
 	ticket() {
 		return Tickets.findOne({_id: FlowRouter.getParam('ticketId')});
 	}
 })
-
-// ANIMATIONS

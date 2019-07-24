@@ -1,5 +1,4 @@
 import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
-import { FlowTransition } from 'meteor/mcissel:flow-transition';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 
 // Route principale : accueil
@@ -44,13 +43,14 @@ FlowRouter.route('/ladder', {
 	}
 })
 
+// Page du classement
+FlowRouter.route('/mycontributions', {
+	action() {	
+		BlazeLayout.render('layout', { main: 'contributions'})
+	}
+})
 
-FlowTransition.addTransition({
-  section: 'body',
-  from: 'ticket_proposition',
-  to: 'ticket_create_form',
-  txFull: 'left' // direction of motion, content will be moving left
-});
+
 
 
 

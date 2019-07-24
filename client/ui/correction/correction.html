@@ -1,0 +1,29 @@
+<template name="correction_form">
+	<div class="card">
+		<div class="card-body">
+			<form class="js-create-correction">
+				<label>Proposer une correction</label>
+				<input type="text" class="form-control mb-2" placeholder="Correction" name="content">
+				<button class="btn btn-success float-right">Envoyer</button>
+			</form>
+		</div>
+	</div>
+</template>
+
+<template name="correction_accepted_list">
+	{{#each correction in corrections}}
+	
+		{{> correction_single correction=correction}}
+	
+	{{/each}}
+</template>
+
+<template name="correction_single">
+	<div class="card my-2">
+		<div class="card-body">
+			{{correction.status}}
+			<h5 class="card-title">{{getUserFullname correction.ownerId}}</h5>
+			<p class="card-text">{{correction.content}}</p>
+		</div>
+	</div>
+</template>

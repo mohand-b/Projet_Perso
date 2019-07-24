@@ -10,12 +10,16 @@
 					
 					<a href="/ticket/{{ticket._id}}/edit" class="btn btn-primary btn-sm mb-3">Modifier</a>
 					
+					<button class="btn btn-danger btn-sm mb-3 js-delete-ticket">Supprimer</button>
+					
 					<p class="card-text text-justify" style="white-space: pre-line">
 						{{ticket.content}}
 					</p>
 				</div>
 			</div>
 		</div>
+		{{> correction_form}}
+		{{> correction_accepted_list}}
 	</article>
 </template>
 
@@ -61,7 +65,7 @@
 			
 			<div class="my-1">
 				<a href="/ticket/{{ticket._id}}" class="btn-cancel btn btn-light">Annuler</a>
-				<button type="submit" class="btn-create-ticket btn btn-success">Modifier le ticket</button>
+				<button type="submit" class="js-edit-ticket btn btn-success">Modifier le ticket</button>
 			</div>
 		</form>
 		</div>
@@ -92,6 +96,7 @@
 		</div>
 		<aside class="card-body col-sm-4">
 			<a href="/ticket/{{ticket._id}}" class="btn btn-light btn-sm">Afficher</a>
+			
 		</aside>
 	</div>
 </template>
