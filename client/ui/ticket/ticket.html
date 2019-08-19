@@ -8,10 +8,11 @@
 					
 					<h6 class="card-subtitle text-muted mb-2">Publié le {{getDisplayDateTime ticket.createdAt}} par {{getUserFullname  ticket.ownerId}}</h6>
 					
+					{{#if equals ticket.ownerId currentUser._id}}
 					<a href="/ticket/{{ticket._id}}/edit" class="btn btn-primary btn-sm mb-3">Modifier</a>
 					
 					<button class="btn btn-danger btn-sm mb-3 js-delete-ticket">Supprimer</button>
-					
+					{{/if}}
 					<p class="card-text text-justify" style="white-space: pre-line">
 						{{ticket.content}}
 					</p>

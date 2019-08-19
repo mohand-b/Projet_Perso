@@ -44,13 +44,17 @@ Template.ticket_edit_form.events({
 		const title = event.target.title.value
 		const content = event.target.content.value
 		
-		Meteor.call('updateTicket', FlowRouter.getParam('ticketId'),{ title: title, content: content},
+		Meteor.call('updateTicket', { id: FlowRouter.getParam('ticketId'), title: title, content: content},
 				   (err, res) => {
 			if(!err) {
 				FlowRouter.go('/ticket/:ticketId', {ticketId: FlowRouter.getParam('ticketId')})
-			}
+			}console.log(err)
 		})
 	}
+})
+
+Template.ticket_edit_form.onCreated(function() {
+	this.subscribe('ticket.single', FlowRouter.getParam('ticketId'))
 })
 
 // Évènements liés au template "ticket_page"
@@ -62,6 +66,14 @@ Template.ticket_page.events({
 			if(!err) FlowRouter.go('/')
 		})		
 	}
+})
+
+Template.ticket_list.onCreated(function() {
+	this.subscribe('tickets.list')
+})
+
+Template.ticket_page.onCreated(function() {
+	this.subscribe('ticket.single', FlowRouter.getParam('ticketId'))
 })
 
 // ----------- HELPERS

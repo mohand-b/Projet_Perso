@@ -11,3 +11,7 @@ Template.registerHelper('getUserFullname', function(userId) {
 		return user.username
 	}
 })
+
+Template.registerHelper('equals', function (a, b) {
+	return a === b 
+})

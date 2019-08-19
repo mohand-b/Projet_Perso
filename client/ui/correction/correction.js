@@ -15,7 +15,7 @@ Template.correction_form.events({
 		(err, res) => { 
 			if(!err) {
 				event.target.content.value = ''
-			}
+			} console.log(err)
 		})		
 	},
 })
