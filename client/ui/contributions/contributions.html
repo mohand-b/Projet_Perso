@@ -1,24 +1,25 @@
 <template name="contributions">
 	<h2 class="py-4">Mes contributions</h2>
 	
-	<h4 class="py-4">Acceptés</h4>
-	{{#each contributionsAccepted}}
+	<h4 class="py-4">Acceptées</h4>
 	
-		{{> contribution_single contribution=contributionsAccepted}}
+	<h4 class="py-4">En attente</h4>
+	{{#each contribution in contributionsPending}}
+	
+		{{> contribution_single contribution=contribution}}
 	
 	{{/each}}
 	
-	<h4 class="py-4">Refusés</h4>
+	<h4 class="py-4">Refusées</h4>
 </template>
 
 
 
 <template name="contribution_single">
 	<div class="card my-2">
-		<div class="card-body">
-			<p>test</p>
-			{{contribution.status}}
+		<div class="card-body d-flex justify-content-between">
 			<p class="card-text">{{contribution.content}}</p>
+			<a href="/ticket/{{contribution.ticketId}}" class="btn btn-light">Afficher le ticket</a>
 		</div>
 	</div>
 </template>

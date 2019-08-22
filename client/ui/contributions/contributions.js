@@ -2,17 +2,28 @@ import { Tickets, Corrections } from '../../../both';
 
 import './contributions.html'
 
-// HELPERS
+// ----------- HELPERS
 
 Template.contributions.helpers({
 	
 	// Liste des commentaires liés au ticket
 	
 	contributionsAccepted() {
-		let test = Corrections.find().fetch()
-		return test
+		return Corrections.find({status: "Acceptée"}).fetch()
+	},
+	
+	contributionsPending() {
+		return Corrections.find({status: "En attente"}).fetch()
+	},
+	
+	contributionsRefused() {
+		return Corrections.find({status: "Refusée"}).fetch()
 	}
 })
+
+
+
+// ----------- SUBSCRIBE
 
 Template.contributions.onCreated(function() {
 	this.subscribe('contributions')

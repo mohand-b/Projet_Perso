@@ -69,6 +69,10 @@ Template.ticket_page.events({
 	}
 })
 
+
+
+// ----------- SUBSCRIBE
+
 Template.ticket_list.onCreated(function() {
 	this.subscribe('tickets.list')
 })

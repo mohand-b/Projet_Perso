@@ -2,20 +2,21 @@
 	<h2 class="py-4">Classement</h2>
 	
 		<article>
-		{{#each user in users}}
-			{{> user_single user=user}}
-		{{else}}
-		<h4>Aucun élément à afficher</h4>
-		{{/each}}
-	</article>
+			{{#each user in users}}
+				{{> user_single user=user}}
+			{{else}}
+			<h4>Aucun élément à afficher</h4>
+			{{/each}}
+		</article>
+	
 </template>
 
 
 <!-- USER SINGLE -->
 <template name="user_single" >
 	
-		<div class="card-body col-sm-8">
-			<h4 class="card-title">{{user.username}}</h4>
-
+	<div class="card-body col-sm-8">
+		<h4 class="card-title">{{user.username}}</h4>
 	</div>
+	
 </template>

@@ -17,3 +17,11 @@ Template.ladder.helpers({
 		return Meteor.users.find().fetch();
 	}
 })
+
+
+
+// ----------- SUBSCRIBE
+
+Template.ladder.onCreated(function() {
+	this.subscribe('ladder')
+})

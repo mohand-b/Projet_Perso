@@ -47,11 +47,19 @@ Meteor.publish('ticket.single', (ticketId) => {
 
 Meteor.publish('contributions', () => {
 	
-	let contributionCursor = Corrections.find()
-	
-	let arrayContribution = contributionCursor.fetch()
+	let contributionCursor = Corrections.find({ownerId: Meteor.userId()})
 	
 	return [
 		contributionCursor
 	]
+}) // Contributions de l'utilisateur 
+
+Meteor.publish('ladder', () => {
+	
+	let userCursor = Meteor.users.find()
+	
+	return [
+		userCursor
+	]
+	
 })
