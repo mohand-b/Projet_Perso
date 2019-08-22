@@ -3,9 +3,11 @@ import { check } from 'meteor/check'
 
 // Données du serveur publiées à l'utilisateur
 
-Meteor.publish('tickets.list', () => {
+Meteor.publish('tickets.list', (/*skip, limit*/) => {
+	/*check(skip, Number)
+	check(limit, Number)*/
 	
-	let ticketCursor = Tickets.find({}, { fields : { content: 0}})
+	let ticketCursor = Tickets.find({}, { fields : { content: 0}, sort : { createdAt: -1 }/*, skip: skip, limit: limit*/})
 	
 	// Récupération des id des auteurs des tickets
 	let arrayTicket = ticketCursor.fetch()
@@ -15,11 +17,11 @@ Meteor.publish('tickets.list', () => {
 	
 	return [
 		ticketCursor,
-		Meteor.users.find({_id: { $in: arrayUniqueOwnerId}})
+		Meteor.users.find({_id: { $in: arrayUniqueOwnerId}}/*, { fields : { profile : 1}}*/)
 	]
 })
 
-Meteor.publish('ticket.single', function(ticketId){
+Meteor.publish('ticket.single', (ticketId) => {
 	check(ticketId, String)
 	
 	// Récupération des Cursors
@@ -39,6 +41,17 @@ Meteor.publish('ticket.single', function(ticketId){
 	return [
 		ticketCursor,
 		correctionCursor,
-		Meteor.users.find({_id: { $in: arrayUniqueOwnerId}})
+		Meteor.users.find({_id: { $in: arrayUniqueOwnerId}}/*, { fields : { profile : 1}}*/)
+	]
+})
+
+Meteor.publish('contributions', () => {
+	
+	let contributionCursor = Corrections.find()
+	
+	let arrayContribution = contributionCursor.fetch()
+	
+	return [
+		contributionCursor
 	]
 })

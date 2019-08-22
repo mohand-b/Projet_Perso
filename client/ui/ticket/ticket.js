@@ -1,4 +1,5 @@
-import { Tickets, Corrections, UsersActivity } from '../../../both';
+import { Tickets, Corrections } from '../../../both';
+import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 
 import './ticket.html';
 
@@ -75,6 +76,9 @@ Template.ticket_list.onCreated(function() {
 Template.ticket_page.onCreated(function() {
 	this.subscribe('ticket.single', FlowRouter.getParam('ticketId'))
 })
+
+
+
 
 // ----------- HELPERS
 

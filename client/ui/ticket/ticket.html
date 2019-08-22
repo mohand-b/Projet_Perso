@@ -7,6 +7,7 @@
 					<h2 class="card-title">{{ticket.title}}</h2>
 					
 					<h6 class="card-subtitle text-muted mb-2">Publié le {{getDisplayDateTime ticket.createdAt}} par {{getUserFullname  ticket.ownerId}}</h6>
+					<p class="small">Modifié {{ticket.counterEdit}} fois</p>
 					
 					{{#if equals ticket.ownerId currentUser._id}}
 					<a href="/ticket/{{ticket._id}}/edit" class="btn btn-primary btn-sm mb-3">Modifier</a>

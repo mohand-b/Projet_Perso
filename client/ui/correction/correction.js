@@ -29,5 +29,13 @@ Template.correction_accepted_list.helpers({
 	corrections() {
 		return Corrections.find({ticketId: FlowRouter.getParam('ticketId')})
 	},
+	
+	correctionsAccepted() {
+		return Corrections.find({status: 'En attente', content:'Test'})
+	}
 })
+
+
+// ------- JS
+
 

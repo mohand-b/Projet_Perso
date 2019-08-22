@@ -1,4 +1,5 @@
 import { Tickets, Corrections, ticketUpsertSchema, correctionUpsertSchema } from './collections'
+import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 import { check } from 'meteor/check' // vérifier le type (package meteor), amélioré avec le Simple Schema
 
 // Créer nous même les méthodes CRUD pour nos tickets pour sécuriser la communication à la bdd MongoDB

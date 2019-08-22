@@ -1,11 +1,10 @@
 import SimpleSchema from 'simpl-schema'
-import {check } from 'meteor/check'
+import { check } from 'meteor/check'
 
 export const Tickets = new Mongo.Collection('tickets');
 
 export const Corrections = new Mongo.Collection('corrections');
 
-export const UsersActivity = new Mongo.Collection('usersactivity')
 
 
 export const ticketUpsertSchema = new SimpleSchema({
