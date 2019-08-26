@@ -77,7 +77,7 @@
 <!-- TICKET_LIST -->
 <template name="ticket_list">
 	<article>
-		<h3 class="py-3">Derniers tickets</h3>
+		<h3 class="py-4"><i class="fa fa-ticket" aria-hidden="true"></i> Derniers tickets</h3>
 		{{#each ticket in tickets}}
 			{{> ticket_single ticket=ticket}}
 		{{else}}

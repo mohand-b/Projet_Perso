@@ -6,7 +6,10 @@
 	{{> Template.dynamic template=ticket_creation}}
 	{{/if}}
 	
-	{{> ticket_list}}
+	<main class="row">
+		<div class="col-8">{{> ticket_list}}</div>
+		<div class="col-3">{{> ladder}}</div>
+	</main>
 </template>
 
 <template name="home_description">

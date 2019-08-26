@@ -54,9 +54,7 @@ Template.ticket_edit_form.events({
 	}
 })
 
-Template.ticket_edit_form.onCreated(function() {
-	this.subscribe('ticket.single', FlowRouter.getParam('ticketId'))
-})
+
 
 // Évènements liés au template "ticket_page"
 Template.ticket_page.events({
@@ -70,8 +68,11 @@ Template.ticket_page.events({
 })
 
 
-
 // ----------- SUBSCRIBE
+
+Template.ticket_edit_form.onCreated(function() {
+	this.subscribe('ticket.single', FlowRouter.getParam('ticketId'))
+})
 
 Template.ticket_list.onCreated(function() {
 	this.subscribe('tickets.list')

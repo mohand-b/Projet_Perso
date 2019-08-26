@@ -1,8 +1,7 @@
 {
   "public": {
     "analyticsSettings": {
-      // Add your analytics tracking id's here
-      "Google Analytics" : {"trackingId": "UA-146230280-1"}
+      "Google Analytics" : {"trackingId": "Your tracking ID"}
     }
   }
 }

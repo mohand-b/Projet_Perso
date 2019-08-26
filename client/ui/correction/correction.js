@@ -20,6 +20,24 @@ Template.correction_form.events({
 	},
 })
 
+Template.correction_single.events({
+	'click .js-accept-correction'(event, instance){
+		
+		Meteor.call('acceptCorrection', {id: this._id, status: this.status},
+				   (err, res) => {
+			if(!err) console.log('accepted!')
+		})
+	},
+	
+	'click .js-refuse-correction'(event, instance){
+		
+		Meteor.call('refuseCorrection', {id: this._id, status: this.status},
+				   (err, res) => {
+			if(!err) console.log('refused!')
+		})
+	}
+})
+
 
 // ----------- HELPERS
 
@@ -32,6 +50,17 @@ Template.correction_accepted_list.helpers({
 	
 	correctionsAccepted() {
 		return Corrections.find({status: 'En attente', content:'Test'})
+	},
+	
+})
+
+
+
+Template.correction_single.helpers({
+	
+	// Vérifier le status de la correction
+	statusPending(correctionStatus) { 
+		return correctionStatus === "En attente"
 	}
 })
 

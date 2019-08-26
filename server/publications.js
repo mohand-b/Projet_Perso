@@ -14,7 +14,6 @@ Meteor.publish('tickets.list', (/*skip, limit*/) => {
 	let arrayOwnerId = arrayTicket.map(ticket => ticket.ownerId) // pour chaque élément du tableau, renvoie l'ownerId dans un tableau > ["id1", "id2", "id2"]
 	let arrayUniqueOwnerId = Array.from(new Set(arrayOwnerId)) // ["id1", "id2"]
 	
-	
 	return [
 		ticketCursor,
 		Meteor.users.find({_id: { $in: arrayUniqueOwnerId}}/*, { fields : { profile : 1}}*/)

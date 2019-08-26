@@ -2,6 +2,11 @@
 	<h2 class="py-4">Mes contributions</h2>
 	
 	<h4 class="py-4">Acceptées</h4>
+	{{#each contribution in contributionsAccepted}}
+	
+		{{> contribution_single contribution=contribution}}
+	
+	{{/each}}
 	
 	<h4 class="py-4">En attente</h4>
 	{{#each contribution in contributionsPending}}
@@ -11,6 +16,11 @@
 	{{/each}}
 	
 	<h4 class="py-4">Refusées</h4>
+	{{#each contribution in contributionsRefused}}
+	
+		{{> contribution_single contribution=contribution}}
+	
+	{{/each}}
 </template>
 
 

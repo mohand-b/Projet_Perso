@@ -81,5 +81,45 @@ Meteor.methods({
 		Corrections.insert(correctiontDoc)
 		
 		
+	},
+	
+	// Accepter une correction
+	acceptCorrection(correction) {
+	
+	if(!this.userId) {
+			throw new Meteor.Error('not-connected')
+		}
+		
+	if(correction.status != "En attente") { // vérifier que la correction n'a pas déjà été appréciée
+			throw new Meteor.Error('correction already classed')
+		}
+	
+	Corrections.update({_id: correction.id}, 
+           {
+             $set: 
+			 {
+				status: "Acceptée"}
+           }
+       )
+	},
+	
+	// Refuser une correction
+	refuseCorrection(correction) {
+	
+	if(!this.userId) {
+			throw new Meteor.Error('not-connected')
+		}
+	
+	if(correction.status != "En attente") { // vérifier que la correction n'a pas déjà été appréciée
+			throw new Meteor.Error('correction already classed')
+		}
+	
+	Corrections.update({_id: correction.id}, 
+           {
+             $set: 
+			 {
+				status: "Refusée"}
+           }
+       )
 	}
 })

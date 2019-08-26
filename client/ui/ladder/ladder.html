@@ -1,13 +1,29 @@
 <template name="ladder">
-	<h2 class="py-4">Classement</h2>
+	<h2 class="py-4"><i class="fa fa-trophy" aria-hidden="true"></i> Classement</h2>
 	
 		<article>
-			{{#each user in users}}
-				{{> user_single user=user}}
-			{{else}}
-			<h4>Aucun élément à afficher</h4>
-			{{/each}}
+			
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Pseudo</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					{{#each user in users}}
+						{{> user_single user=user}}
+					{{else}}
+						<h4>Aucun élément à afficher</h4>
+					{{/each}}					
+				</tbody>
+				
+			</table>	
+			
 		</article>
+	
+	
 	
 </template>
 
@@ -15,8 +31,9 @@
 <!-- USER SINGLE -->
 <template name="user_single" >
 	
-	<div class="card-body col-sm-8">
-		<h4 class="card-title">{{user.username}}</h4>
-	</div>
+	<tr>
+		<th scope="row">-</th>
+		<td>{{user.username}}</td>
+	</tr>
 	
 </template>
