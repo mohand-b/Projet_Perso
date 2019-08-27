@@ -95,12 +95,12 @@ Meteor.methods({
 		}
 	
 	Corrections.update({_id: correction.id}, 
-           {
-             $set: 
-			 {
-				status: "Acceptée"}
+           {$set: 
+			{status: "Acceptée"}
            }
        )
+	Meteor.users.update({_id:Meteor.user()._id}, {$inc: {score:5} }) // +5 pts pour la correction validée
+	
 	},
 	
 	// Refuser une correction

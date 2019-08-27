@@ -14,7 +14,7 @@ import './ladder.html'
 Template.ladder.helpers({
 	// Liste des tickets triés par date
 	users() {
-		return Meteor.users.find().fetch();
+		return Meteor.users.find({}, { sort: {score: -1}}).fetch();
 	}
 })
 

@@ -1,0 +1,27 @@
+<template name="mytickets_list">
+	<article>
+		<h3 class="py-4"><i class="fa fa-ticket" aria-hidden="true"></i> Mes tickets</h3>
+		{{#each ticket in tickets}}
+			{{> mytickets_single ticket=ticket}}
+		{{else}}
+		<h4>Aucun élément à afficher</h4>
+		{{/each}}
+	</article>
+</template>
+
+<!-- TICKET_SINGLE -->
+<template name="mytickets_single" >
+	<div class="row">
+		<div class="card-body col-sm-8">
+			<h4 class="card-title">{{ticket.title}}</h4>
+			<p class="card-text">Publié le {{getDisplayDateTime ticket.createdAt}} par {{getUserFullname ticket.ownerId}}</p>
+			<div class="contributors">
+				<span>x contributeurs</span>
+			</div>
+		</div>
+		<aside class="card-body col-sm-4">
+			<a href="/ticket/{{ticket._id}}" class="btn btn-light btn-sm">Afficher</a>
+			
+		</aside>
+	</div>
+</template>

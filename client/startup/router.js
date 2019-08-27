@@ -22,6 +22,13 @@ FlowRouter.route('/ticket/:ticketId', {
 	}
 })
 
+// Page de mes tickets
+FlowRouter.route('/mytickets', {
+	action() {
+	BlazeLayout.render('layout', { main: 'mytickets_list'})
+	}
+})
+
 // Page de mofidication du ticket
 FlowRouter.route('/ticket/:ticketId/edit', {
 	action() {

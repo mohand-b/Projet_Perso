@@ -8,14 +8,13 @@
 					<tr>
 						<th scope="col">#</th>
 						<th scope="col">Pseudo</th>
+						<th scope="col">Score</th>
 					</tr>
 				</thead>
 				
 				<tbody>
 					{{#each user in users}}
 						{{> user_single user=user}}
-					{{else}}
-						<h4>Aucun élément à afficher</h4>
 					{{/each}}					
 				</tbody>
 				
@@ -34,6 +33,7 @@
 	<tr>
 		<th scope="row">-</th>
 		<td>{{user.username}}</td>
+		<td>{{user.score}}</td>
 	</tr>
 	
 </template>

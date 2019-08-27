@@ -10,6 +10,10 @@ Template.navbar.events({
 	{
 		FlowRouter.go('/ladder')
 	},
+	'click .mytickets-js'(event, instance)
+	{
+		FlowRouter.go('/mytickets')
+	},
 	'click .contributions-js'(event, instance)
 	{
 		FlowRouter.go('/mycontributions')	

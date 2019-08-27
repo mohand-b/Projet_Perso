@@ -25,10 +25,10 @@
 			<h5 class="card-title">{{getUserFullname this.ownerId}}</h5>
 			<p class="card-text">{{this.content}}</p>
 			
-			{{#if statusPending this.status}}
+			{{#if statusPending this.status}}{{#if whoCanAppreciate}}
 				<button class="js-accept-correction">Accepter</button>
 				<button class="js-refuse-correction">Refuser</button>
-			{{/if}}
+			{{/if}}{{/if}}
 		</div>
 	</div>
 </template>

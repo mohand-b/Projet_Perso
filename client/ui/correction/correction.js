@@ -1,5 +1,5 @@
 import './correction.html'
-import { Corrections } from '../../../both'
+import { Corrections, Tickets } from '../../../both'
 import { FlowRouter } from 'meteor/ostrio:flow-router-extra'
 
 
@@ -61,8 +61,14 @@ Template.correction_single.helpers({
 	// Vérifier le status de la correction
 	statusPending(correctionStatus) { 
 		return correctionStatus === "En attente"
+	},
+	
+	whoCanAppreciate() {
+		return Meteor.userId() === Tickets.findOne({_id: FlowRouter.getParam('ticketId')}).ownerId
 	}
 })
+
+	
 
 
 // ------- JS
