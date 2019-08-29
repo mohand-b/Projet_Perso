@@ -23,6 +23,21 @@ Template.contributions.helpers({
 
 
 
+Template.contribution_single.helpers({
+	
+	statusPending(correctionStatus) { 
+		return correctionStatus === "En attente"
+	},
+	statusAccepted(correctionStatus) {
+		return correctionStatus === "Acceptée"
+	},
+	statusRefused(correctionStatus) {
+		return correctionStatus === "Refusée"
+	},
+	
+})
+
+
 // ----------- SUBSCRIBE
 
 Template.contributions.onCreated(function() {

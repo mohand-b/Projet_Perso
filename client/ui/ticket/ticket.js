@@ -82,6 +82,10 @@ Template.ticket_page.onCreated(function() {
 	this.subscribe('ticket.single', FlowRouter.getParam('ticketId'))
 })
 
+Template.ticket_single.onCreated(function() {
+	this.subscribe('contributeurs')
+})
+
 
 
 
@@ -105,5 +109,15 @@ Template.ticket_edit_form.helpers({
 	// Ticket affiché sur la page
 	ticket() {
 		return Tickets.findOne({_id: FlowRouter.getParam('ticketId')});
+	}
+})
+
+Template.contributeurs.helpers({
+	contributeurs(ticketid) {
+		
+		let correctionCursor = Corrections.find({ticketId: ticketid})
+		let countContributeurs = correctionCursor.count()
+	
+		return  countContributeurs
 	}
 })

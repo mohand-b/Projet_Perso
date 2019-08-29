@@ -23,7 +23,7 @@ Template.correction_form.events({
 Template.correction_single.events({
 	'click .js-accept-correction'(event, instance){
 		
-		Meteor.call('acceptCorrection', {id: this._id, status: this.status},
+		Meteor.call('acceptCorrection', {id: this._id, status: this.status, ownerId: this.ownerId},
 				   (err, res) => {
 			if(!err) console.log('accepted!')
 		})
@@ -61,6 +61,12 @@ Template.correction_single.helpers({
 	// Vérifier le status de la correction
 	statusPending(correctionStatus) { 
 		return correctionStatus === "En attente"
+	},
+	statusAccepted(correctionStatus) {
+		return correctionStatus === "Acceptée"
+	},
+	statusRefused(correctionStatus) {
+		return correctionStatus === "Refusée"
 	},
 	
 	whoCanAppreciate() {

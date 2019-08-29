@@ -99,7 +99,7 @@ Meteor.methods({
 			{status: "Acceptée"}
            }
        )
-	Meteor.users.update({_id:Meteor.user()._id}, {$inc: {score:5} }) // +5 pts pour la correction validée
+	Meteor.users.update({_id: correction.ownerId}, {$inc: {score:5} }) // +5 pts pour la correction validée
 	
 	},
 	

@@ -21,7 +21,8 @@
 <template name="correction_single">
 	<div class="card my-2">
 		<div class="card-body post-item" data-id="{{_id}}">
-			{{this.status}}
+			<p class="{{#if statusAccepted this.status}}status-accepted{{/if}} 
+					  {{#if statusRefused this.status}}status-refused{{/if}}">{{this.status}}</p>
 			<h5 class="card-title">{{getUserFullname this.ownerId}}</h5>
 			<p class="card-text">{{this.content}}</p>
 			

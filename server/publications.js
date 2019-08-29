@@ -33,6 +33,7 @@ Meteor.publish('ticket.single', (ticketId) => {
 	
 	// Ajouter l'auteur du ticket
 	let ticket = ticketCursor.fetch().find(ticket => ticket._id === ticketId)
+	
 	arrayOwnerId.push(ticket.ownerId)
 	
 	let arrayUniqueOwnerId = Array.from(new Set(arrayOwnerId))
@@ -40,7 +41,7 @@ Meteor.publish('ticket.single', (ticketId) => {
 	return [
 		ticketCursor,
 		correctionCursor,
-		Meteor.users.find({_id: { $in: arrayUniqueOwnerId}}/*, { fields : { profile : 1}}*/)
+		Meteor.users.find(/*{_id: { $in: arrayUniqueOwnerId}}*/)
 	]
 })
 
@@ -61,4 +62,11 @@ Meteor.publish('ladder', () => {
 		userCursor
 	]
 	
+})
+
+Meteor.publish('contributeurs', () => {
+	
+	let correctionCursor = Corrections.find({status: "Acceptée"})
+	
+	return correctionCursor
 })

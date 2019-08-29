@@ -14,6 +14,12 @@ AccountsTemplates.addField({
 	trim: true	
 })
 
+AccountsTemplates.addField({
+	_id: 'rank',
+	type: 'hidden',
+	value: 1,
+})
+
 password.minLength = 3;
 
 AccountsTemplates.addField(email);

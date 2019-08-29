@@ -47,3 +47,10 @@ ul {display: block; margin-block-start: 0; margin-block-end: 0;}
 
 .ticket_card .left_card {width: 70%;}
 .ticket_card .right_card {width: 20%;}
+
+.status-accepted {color: rgba(36,189,53,1.00)}
+.status-refused {color: red}
+
+.contribution-accepted {background-color: rgba(1,175,0,0.05)}
+.contribution-pending {background-color: rgba(255,233,109,0.07)}
+.contribution-refused {background-color: rgba(255,91,93,0.07)}
