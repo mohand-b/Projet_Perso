@@ -1,5 +1,6 @@
 import moment from 'moment'
 
+
 Template.registerHelper('getDisplayDateTime', function(date) {
 	return moment(date).format('DD/MM/YYYY à HH:mm')
 })
@@ -14,4 +15,15 @@ Template.registerHelper('getUserFullname', function(userId) {
 
 Template.registerHelper('equals', function (a, b) {
 	return a === b 
+})
+
+Template.registerHelper('superieur', function (a) {
+	
+	let b = 1
+	
+	if(a>b) {
+		return "s"
+	}
+	
+	
 })

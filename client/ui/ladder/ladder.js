@@ -12,11 +12,38 @@ import './ladder.html'
 // ----------- HELPERS
 
 Template.ladder.helpers({
-	// Liste des tickets triés par date
+	
 	users() {
-		return Meteor.users.find({}, { sort: {score: -1}}).fetch();
+		
+		// Liste des users triés par score
+		let users = Meteor.users.find({}, { sort: {score: -1}}).fetch()
+	
+		
+		//tableau classement
+		let ladder = []
+		//position du user
+		let position = 0
+
+		//console.log("tableau users : "+users)
+		
+		//Pour chaque user
+		for(user in users){
+			
+			position++	
+			
+			ladder[user]= 
+				{
+				position: position,
+				username:users[user].username,
+				score: users[user].score
+			}			
+		}
+		
+	return ladder
 	}
+
 })
+
 
 
 

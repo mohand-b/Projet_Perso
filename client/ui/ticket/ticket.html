@@ -6,7 +6,7 @@
 				<div class="text-center">
 					<h2 class="card-title">{{ticket.title}}</h2>
 					
-					<h6 class="card-subtitle text-muted mb-2">Publié le {{getDisplayDateTime ticket.createdAt}} par {{getUserFullname  ticket.ownerId}}</h6>
+					<h6 class="card-subtitle text-muted mb-2">Publié le {{getDisplayDateTime ticket.createdAt}} par <a href="/profil/{{ticket.ownerId}}">{{getUserFullname  ticket.ownerId}}</a></h6>
 					<p class="small">Modifié {{ticket.counterEdit}} fois</p>
 					
 					{{#if equals ticket.ownerId currentUser._id}}
@@ -88,12 +88,12 @@
 
 <!-- TICKET_SINGLE -->
 <template name="ticket_single" >
-	<div class="row">
+	<div class="row ticket-single">
 		<div class="card-body col-sm-8">
 			<h4 class="card-title">{{this.title}}</h4>
-			<p class="card-text">Publié le {{getDisplayDateTime this.createdAt}} par {{getUserFullname this.ownerId}}</p>
+			<p class="card-text">Publié le {{getDisplayDateTime this.createdAt}} par <a href="/profil/{{this.ownerId}}">{{getUserFullname this.ownerId}}</a></p>
 			<div class="contributors">
-				<span>{{> contributeurs}} contributeurs</span>
+				<span>{{> contributeurs}}</span>
 			</div>
 		</div>
 		<aside class="card-body col-sm-4">
@@ -104,6 +104,6 @@
 </template>
 
 <template name="contributeurs">
-{{contributeurs this._id}}
+{{contributeurs this._id}} contribution{{superieur (contributeurs this._id)}}
 
 </template>

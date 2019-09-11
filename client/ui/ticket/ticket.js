@@ -88,7 +88,6 @@ Template.ticket_single.onCreated(function() {
 
 
 
-
 // ----------- HELPERS
 
 Template.ticket_page.helpers({
@@ -117,7 +116,7 @@ Template.contributeurs.helpers({
 		
 		let correctionCursor = Corrections.find({ticketId: ticketid})
 		let countContributeurs = correctionCursor.count()
-	
+		
 		return  countContributeurs
 	}
 })

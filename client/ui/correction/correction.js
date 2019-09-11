@@ -37,6 +37,12 @@ Template.correction_single.events({
 		})
 	}
 })
+	
+// ----------- SUBSCRIBE
+
+Template.correction_form.onCreated(function() {
+	this.subscribe('ticket.single', FlowRouter.getParam('ticketId'))
+})
 
 
 // ----------- HELPERS
@@ -49,12 +55,21 @@ Template.correction_accepted_list.helpers({
 	},
 	
 	correctionsAccepted() {
-		return Corrections.find({status: 'En attente', content:'Test'})
+		return Corrections.find({ticketId: FlowRouter.getParam('ticketId'), status: "Acceptée"})
 	},
+	
+	whoCanAppreciate() {
+		return Meteor.userId() === Tickets.findOne({_id: FlowRouter.getParam('ticketId')}).ownerId
+	}
 	
 })
 
-
+Template.correction_form.helpers({
+	// Ticket affiché sur la page
+	ticket() {
+		return Tickets.findOne({_id: FlowRouter.getParam('ticketId')});
+	}
+})
 
 Template.correction_single.helpers({
 	

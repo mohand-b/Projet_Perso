@@ -1,6 +1,5 @@
 <template name="ladder">
 	<h2 class="py-4"><i class="fa fa-trophy" aria-hidden="true"></i> Classement</h2>
-	
 		<article>
 			
 			<table class="table">
@@ -14,16 +13,12 @@
 				
 				<tbody>
 					{{#each user in users}}
-						{{> user_single user=user}}
+						{{> user_single user}}
 					{{/each}}					
 				</tbody>
-				
 			</table>	
 			
 		</article>
-	
-	
-	
 </template>
 
 
@@ -31,9 +26,9 @@
 <template name="user_single" >
 	
 	<tr>
-		<th scope="row">-</th>
-		<td>{{user.username}}</td>
-		<td>{{user.score}}</td>
+		<td>{{this.position}}</td>
+		<td><a href="/profil/{{this._id}}" class="userLink">{{this.username}}</a></td>
+		<td>{{this.score}}</td>
 	</tr>
 	
 </template>

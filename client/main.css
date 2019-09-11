@@ -12,6 +12,12 @@ main {padding: 0 5%}
 
 
 h1, h2 {text-align: center}
+.headerTitle {background-image:url("https://wallpaperaccess.com/full/497086.jpg"); background-size: cover; background-position: 50% -500px; height: 200px; display: flex; flex-direction: column; justify-content: center; border-bottom: 2px solid black}
+h1 {margin: 0; color: white}
+h1 a {color: white; background-color: rgba(0,0,0,0.23); padding: 30px;}
+
+.userLink {color: black}
+.userLink:hover {text-decoration: none}
 
 
  /*   _             _             _   _             
@@ -24,13 +30,13 @@ h1, h2 {text-align: center}
 
 nav ul li:last-child {text-align: -webkit-right; padding-inline-end: 50px;}
 
-nav .row {align-items: center}
-nav .col {text-align: center; background-color: rgba(126,196,255,0.21); line-height: 100px; transition: 1s ease}
+nav ul {display: flex;}
+nav .col {text-align: center; background-color: rgba(177,175,154,0.20); line-height: 100px; transition: 1s ease}
 
 nav .col:hover {background-color: rgba(126,196,255,0.1)}
 nav ul li:last-child .col:hover {background-color: rgba(126,196,255,0.21)}
 
-/* Normalize */
+ Normalize 
 ul {display: block; margin-block-start: 0; margin-block-end: 0;}
 
 /*_____ _      _        _       
@@ -47,6 +53,10 @@ ul {display: block; margin-block-start: 0; margin-block-end: 0;}
 
 .ticket_card .left_card {width: 70%;}
 .ticket_card .right_card {width: 20%;}
+
+.row {padding: 0}
+
+.ticket-single {background-color: rgba(0,0,0,0.05); margin: 10px 0}
 
 .status-accepted {color: rgba(36,189,53,1.00)}
 .status-refused {color: red}

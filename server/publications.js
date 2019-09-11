@@ -3,6 +3,16 @@ import { check } from 'meteor/check'
 
 // Données du serveur publiées à l'utilisateur
 
+Meteor.publish('profil', () => {
+	
+	let userCursor = Meteor.users.find({}, {fields: {username: 1, score: 1}})
+	
+	return [
+		userCursor
+	]
+	
+})
+
 Meteor.publish('tickets.list', (/*skip, limit*/) => {
 	/*check(skip, Number)
 	check(limit, Number)*/
@@ -67,6 +77,13 @@ Meteor.publish('ladder', () => {
 Meteor.publish('contributeurs', () => {
 	
 	let correctionCursor = Corrections.find({status: "Acceptée"})
+	
+	return correctionCursor
+})
+
+Meteor.publish('contributionsPending', () => {
+	
+	let correctionCursor = Corrections.find({status: "En attente"})
 	
 	return correctionCursor
 })

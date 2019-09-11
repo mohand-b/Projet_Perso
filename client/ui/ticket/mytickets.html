@@ -2,7 +2,7 @@
 	<article>
 		<h3 class="py-4"><i class="fa fa-ticket" aria-hidden="true"></i> Mes tickets</h3>
 		{{#each ticket in tickets}}
-			{{> mytickets_single ticket=ticket}}
+			{{> mytickets_single ticket}}
 		{{else}}
 		<h4>Aucun élément à afficher</h4>
 		{{/each}}
@@ -13,15 +13,20 @@
 <template name="mytickets_single" >
 	<div class="row">
 		<div class="card-body col-sm-8">
-			<h4 class="card-title">{{ticket.title}}</h4>
-			<p class="card-text">Publié le {{getDisplayDateTime ticket.createdAt}} par {{getUserFullname ticket.ownerId}}</p>
+			<h4 class="card-title">{{this.title}}</h4>
+			<p class="card-text">Publié le {{getDisplayDateTime this.createdAt}}</p>
 			<div class="contributors">
-				<span>x contributeurs</span>
+				<span>{{> contributionsPending}}</span>
 			</div>
 		</div>
 		<aside class="card-body col-sm-4">
-			<a href="/ticket/{{ticket._id}}" class="btn btn-light btn-sm">Afficher</a>
+			<a href="/ticket/{{this._id}}" class="btn btn-light btn-sm">Afficher</a>
 			
 		</aside>
 	</div>
+</template>
+
+<template name="contributionsPending">
+{{contributionsPending this._id}} contribution{{superieur (contributionsPending this._id)}} en attente
+
 </template>
