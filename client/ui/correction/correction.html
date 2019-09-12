@@ -2,9 +2,11 @@
 	<div class="card">
 		<div class="card-body">
 			<form class="js-create-correction">
+				
 				<label>Proposer une correction</label>
 				<textarea type="text" class="form-control mb-2" placeholder="Correction" name="content">{{ticket.content}}</textarea>
-				<button class="btn btn-success float-right">Envoyer</button>
+				<button class="btn btn-success float-right">Envoyer</button>	
+				
 			</form>
 		</div>
 	</div>
@@ -42,4 +44,18 @@
 			{{/if}}{{/if}}
 		</div>
 	</div>
+</template>
+
+<template name="correction_sended">
+
+	<div class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content modal-correctionSended">
+				<p class="text-white bg-success">Correction envoyée !</p>
+				
+				<p>En attente d'appréciation par l'auteur du ticket ou par un modérateur. <a href="/mycontributions">Consulter mes contributions</a></p>
+			</div>
+		</div>
+	</div>
+
 </template>

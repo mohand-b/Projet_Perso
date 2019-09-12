@@ -24,3 +24,17 @@ password.minLength = 3;
 
 AccountsTemplates.addField(email);
 AccountsTemplates.addField(password);
+
+let options = {
+	password: password,
+	email: email
+}
+
+Accounts.onCreateUser((options, user) => {
+  // add your extra fields here; don't forget to validate the options, if needed
+  _.extend(user, {
+    status: false,
+  });
+
+  return user;
+});

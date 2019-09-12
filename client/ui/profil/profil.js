@@ -8,6 +8,10 @@ Template.profil.onCreated(function() {
 	this.subscribe('profil'/*, FlowRouter.getParam('userId')*/)
 })
 
+Template.myprofil.onCreated(function() {
+	this.subscribe('profil'/*, FlowRouter.getParam('userId')*/)
+})
+
 
 
 // ----------- HELPERS

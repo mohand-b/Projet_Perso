@@ -34,6 +34,7 @@ Template.ladder.helpers({
 			ladder[user]= 
 				{
 				position: position,
+				id:users[user]._id,
 				username:users[user].username,
 				score: users[user].score
 			}			

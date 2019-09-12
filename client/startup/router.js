@@ -37,6 +37,11 @@ FlowRouter.route('/ticket/:ticketId/edit', {
 })
 
 // Page du profil
+FlowRouter.route('/profil', {
+	action() {
+		BlazeLayout.render('layout', { main: 'myprofil'})
+	}
+})
 FlowRouter.route('/profil/:userId', {
 	action() {
 		BlazeLayout.render('layout', { main: 'profil'})

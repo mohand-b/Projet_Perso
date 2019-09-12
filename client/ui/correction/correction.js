@@ -14,7 +14,8 @@ Template.correction_form.events({
 		Meteor.call('insertCorrection', { content: content, ticketId: FlowRouter.getParam('ticketId')}, 
 		(err, res) => { 
 			if(!err) {
-				event.target.content.value = ''
+				event.target.content.value = '';
+				Modal.show('correction_sended')
 			} console.log(err)
 		})		
 	},

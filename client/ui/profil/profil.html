@@ -1,6 +1,33 @@
 <template name="profil">
-	<h2 class="py-4">Page du profil</h2>
-	
-	<p>Nom d'utilisateur : {{profilInfos.username}}</p>
-	<p>Score : {{profilInfos.score}}</p>
+	<section class="profil">
+		
+		<h2 class="py-4">Page du profil</h2>
+
+		<article>
+		
+			<img class="avatarProfil" src="https://www.zupimages.net/up/19/37/cqg4.png" alt="Photo de profil">
+
+			<p class="usernameProfil">{{profilInfos.username}}</p>
+			<p>Score : {{profilInfos.score}}</p>
+			
+		</article>
+		
+	</section>
+</template>
+
+<template name="myprofil">
+		<section class="profil">
+		
+		<h2 class="py-4">Page du profil</h2>
+
+		<article>
+		
+			<img class="avatarProfil" src="https://www.zupimages.net/up/19/37/cqg4.png" alt="Photo de profil">
+
+			<p class="usernameProfil">{{currentUser.username}}</p>
+			<p>Score : {{currentUser.score}}</p>
+			
+		</article>
+		
+	</section>
 </template>
