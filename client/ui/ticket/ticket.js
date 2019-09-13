@@ -55,7 +55,6 @@ Template.ticket_edit_form.events({
 })
 
 
-
 // Évènements liés au template "ticket_page"
 Template.ticket_page.events({
 	'click .js-delete-ticket'(event, instance){
@@ -66,6 +65,8 @@ Template.ticket_page.events({
 		})		
 	}
 })
+
+
 
 
 // ----------- SUBSCRIBE

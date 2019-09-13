@@ -6,3 +6,14 @@ import './publications'
 Meteor.users.deny({
 	update() {return true}
 })
+
+
+Accounts.onCreateUser(function(options, user) {
+	
+	user.score =0,
+	user.rank = 1
+	
+  return user
+	
+});
+

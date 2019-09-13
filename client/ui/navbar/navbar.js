@@ -1,6 +1,10 @@
 import './navbar.html'
 import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 
+
+
+// ----------- EVENTS
+
 Template.navbar.events({
 	'click .current_user'(event, instance)
 	{
@@ -25,6 +29,10 @@ Template.navbar.events({
 		Meteor.logout();
 	},
 });
+
+
+
+// ----------- SUSCRIBE
 
 Template.login.onCreated(function() {
 	this.autorun(() => {

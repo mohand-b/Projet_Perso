@@ -7,7 +7,6 @@ import './contributions.html'
 Template.contributions.helpers({
 	
 	// Liste des commentaires liés au ticket
-	
 	contributionsAccepted() {
 		return Corrections.find({status: "Acceptée"}).fetch()
 	},
@@ -23,6 +22,15 @@ Template.contributions.helpers({
 
 
 
+// ----------- SUBSCRIBE
+
+Template.contributions.onCreated(function() {
+	this.subscribe('contributions')
+})
+
+
+// ----------- HELPERS
+
 Template.contribution_single.helpers({
 	
 	statusPending(correctionStatus) { 
@@ -35,11 +43,4 @@ Template.contribution_single.helpers({
 		return correctionStatus === "Refusée"
 	},
 	
-})
-
-
-// ----------- SUBSCRIBE
-
-Template.contributions.onCreated(function() {
-	this.subscribe('contributions')
 })

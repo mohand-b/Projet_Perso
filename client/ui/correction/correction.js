@@ -39,11 +39,13 @@ Template.correction_single.events({
 	}
 })
 	
+
 // ----------- SUBSCRIBE
 
 Template.correction_form.onCreated(function() {
 	this.subscribe('ticket.single', FlowRouter.getParam('ticketId'))
 })
+
 
 
 // ----------- HELPERS

@@ -9,6 +9,14 @@ import './ladder.html'
 
 
 
+// ----------- SUBSCRIBE
+
+Template.ladder.onCreated(function() {
+	this.subscribe('ladder')
+})
+
+
+
 // ----------- HELPERS
 
 Template.ladder.helpers({
@@ -36,7 +44,8 @@ Template.ladder.helpers({
 				position: position,
 				id:users[user]._id,
 				username:users[user].username,
-				score: users[user].score
+				score: users[user].score,
+				rank: users[user].rank
 			}			
 		}
 		
@@ -46,10 +55,3 @@ Template.ladder.helpers({
 })
 
 
-
-
-// ----------- SUBSCRIBE
-
-Template.ladder.onCreated(function() {
-	this.subscribe('ladder')
-})

@@ -5,16 +5,20 @@ import './mytickets.html';
 
 
 
+// ----------- SUSCRIBE
+
 Template.mytickets_list.onCreated(function() {
 	this.subscribe('tickets.list')
 })
-
 
 Template.mytickets_single.onCreated(function() {
 	this.subscribe('contributionsPending')
 })
 
 
+
+
+// ----------- HELPERS
 
 Template.mytickets_list.helpers({
 	// Liste des tickets triés par date
