@@ -5,7 +5,7 @@ import { check } from 'meteor/check'
 
 Meteor.publish('profil', () => {
 	
-	let userCursor = Meteor.users.find({}, {fields: {username: 1, score: 1}})
+	let userCursor = Meteor.users.find({}, {fields: {username: 1, score: 1, rank: 1}})
 	
 	return [
 		userCursor
@@ -26,7 +26,7 @@ Meteor.publish('tickets.list', (/*skip, limit*/) => {
 	
 	return [
 		ticketCursor,
-		Meteor.users.find({_id: { $in: arrayUniqueOwnerId}}/*, { fields : { profile : 1}}*/)
+		Meteor.users.find({_id: { $in: arrayUniqueOwnerId}}, { fields : { profile : 1}})
 	]
 })
 
@@ -51,7 +51,7 @@ Meteor.publish('ticket.single', (ticketId) => {
 	return [
 		ticketCursor,
 		correctionCursor,
-		Meteor.users.find(/*{_id: { $in: arrayUniqueOwnerId}}*/)
+		Meteor.users.find({_id: { $in: arrayUniqueOwnerId}}, { fields : { profile : 1}})
 	]
 })
 
@@ -66,7 +66,7 @@ Meteor.publish('contributions', () => {
 
 Meteor.publish('ladder', () => {
 	
-	let userCursor = Meteor.users.find()
+	let userCursor = Meteor.users.find({}, {fields: {_id:1, username:1, score:1, rank:1}})
 	
 	return [
 		userCursor
