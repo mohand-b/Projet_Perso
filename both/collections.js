@@ -17,7 +17,7 @@ export const ticketUpsertSchema = new SimpleSchema({
 	content: {
 		type: String,
 		min: 3,
-		max: 1500
+		max: 15000
 	},
 	id: {
 		type: String,
@@ -30,7 +30,7 @@ export const correctionUpsertSchema = new SimpleSchema({
 	content: {
 		type: String,
 		min: 3,
-		max: 1500
+		max: 15000
 	},
 	ticketId: {
 		type: String

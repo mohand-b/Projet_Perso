@@ -69,7 +69,7 @@ Meteor.methods({
 		if(!this.userId) {
 			throw new Meteor.Error('not-connected')
 		}
-		
+					
 			let correctiontDoc = {
 			content: correction.content,
 			ticketId: correction.ticketId,
@@ -77,7 +77,7 @@ Meteor.methods({
 			ownerId: this.userId,
 			status: "En attente"
 		}
-			
+		
 		Corrections.insert(correctiontDoc)
 		
 		
