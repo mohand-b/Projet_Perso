@@ -50,7 +50,15 @@ Template.ladder.helpers({
 		}
 		
 	return ladder
-	}
+	},
+
+})
+
+Template.user_single.helpers({
+		
+	moderateur(rank) {
+    	return rank === 13
+  },
 
 })
 

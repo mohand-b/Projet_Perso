@@ -63,7 +63,9 @@ Template.correction_accepted_list.helpers({
   },
 
   whoCanAppreciate() {
-    return Meteor.userId() === Tickets.findOne({ _id: FlowRouter.getParam('ticketId') }).ownerId
+    if(Meteor.userId() === Tickets.findOne({ _id: FlowRouter.getParam('ticketId') }).ownerId) return true
+	else if (Meteor.users.find({_id:Meteor.userId()}).fetch()[0].rank === 13) return true
+	else return false
   }
 
 })
@@ -89,7 +91,9 @@ Template.correction_single.helpers({
   },
 
   whoCanAppreciate() {
-    return Meteor.userId() === Tickets.findOne({ _id: FlowRouter.getParam('ticketId') }).ownerId
+    if(Meteor.userId() === Tickets.findOne({ _id: FlowRouter.getParam('ticketId') }).ownerId) return true
+	else if (Meteor.users.find({_id:Meteor.userId()}).fetch()[0].rank === 13) return true
+	else return false
   },
 
   transformContentCorrection(contentCorrection) {

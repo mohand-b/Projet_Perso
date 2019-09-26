@@ -11,9 +11,11 @@ Meteor.users.deny({
 Accounts.onCreateUser(function(options, user) {
 	
 	user.score =0,
-	user.rank = 1
+	user.rank = 0
 	
   return user
 	
 });
+
+
 

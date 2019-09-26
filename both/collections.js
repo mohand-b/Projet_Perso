@@ -12,7 +12,7 @@ export const ticketUpsertSchema = new SimpleSchema({
 	title: {
 		type: String,
 		min: 3,
-		max: 20
+		max: 30
 	},
 	content: {
 		type: String,

@@ -17,6 +17,7 @@ Meteor.publish('tickets.list', (/*skip, limit*/) => {
 	/*check(skip, Number)
 	check(limit, Number)*/
 	
+	/*let userCursor = Meteor.users.find({_id: { $in: arrayUniqueOwnerId}}, { fields : { username:1, score:1, rank: 1}})*/
 	let ticketCursor = Tickets.find({}, { fields : { content: 0}, sort : { createdAt: -1 }/*, skip: skip, limit: limit*/})
 	
 	// Récupération des id des auteurs des tickets
@@ -26,7 +27,7 @@ Meteor.publish('tickets.list', (/*skip, limit*/) => {
 	
 	return [
 		ticketCursor,
-		Meteor.users.find({_id: { $in: arrayUniqueOwnerId}}, { fields : { username:1, score:1, rank: 1,profile : 1}})
+		Meteor.users.find({_id: { $in: arrayUniqueOwnerId}}, { fields : { username:1, score:1, rank: 1}})
 	]
 })
 
@@ -51,7 +52,7 @@ Meteor.publish('ticket.single', (ticketId) => {
 	return [
 		ticketCursor,
 		correctionCursor,
-		Meteor.users.find({_id: { $in: arrayUniqueOwnerId}}, { fields : {username:1, profile : 1}})
+		Meteor.users.find({_id: { $in: arrayUniqueOwnerId}}, { fields : {username:1, profile : 1, rank: 1}})
 	]
 })
 

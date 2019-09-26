@@ -80,3 +80,6 @@ ul {display: block; margin-block-start: 0; margin-block-end: 0;}
 
 .modal-correctionSended {text-align: center; padding: 20px; margin-top: 50%; background-color: rgba(196,255,201,1.00)}
 .bg-success {padding: 10px;}
+
+.text-added {/*font-weight:bold;*/ text-decoration: none; background-color: #d4fcbc;}
+.text-deleted { /*font-weight:bold;*/ background-color: #fbb;}
