@@ -52,7 +52,7 @@ Meteor.publish('ticket.single', (ticketId) => {
 	return [
 		ticketCursor,
 		correctionCursor,
-		Meteor.users.find({_id: { $in: arrayUniqueOwnerId}}, { fields : {username:1, profile : 1, rank: 1}})
+		Meteor.users.find({}, { fields : {username:1, profile : 1, rank: 1}})
 	]
 })
 
