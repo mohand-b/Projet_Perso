@@ -3,9 +3,10 @@ import { check } from 'meteor/check'
 
 // Données du serveur publiées à l'utilisateur
 
-Meteor.publish('profil', () => {
+Meteor.publish('profil', (userId) => {
+	check(userId, String)
 	
-	let userCursor = Meteor.users.find({}, {fields: {username: 1, score: 1, rank: 1}})
+	let userCursor = Meteor.users.find({_id: userId}, {fields: {username: 1, score: 1, rank: 1}})
 	
 	return [
 		userCursor

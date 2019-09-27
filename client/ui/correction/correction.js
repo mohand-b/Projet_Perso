@@ -99,7 +99,6 @@ Template.correction_single.helpers({
   transformContentCorrection(contentCorrection) {
 
     let contentTicket = Tickets.findOne({ _id: FlowRouter.getParam('ticketId') }).content
-    contentCorrection = this.content
 
     let diffs = diff_match_patch.prototype.diff_main(contentTicket, contentCorrection)
 
