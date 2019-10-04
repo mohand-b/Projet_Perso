@@ -90,15 +90,17 @@
 <!-- TICKET_SINGLE -->
 <template name="ticket_single" >
 	<div class="row ticket-single">
-		<div class="card-body col-sm-8">
+		<div class="card-body col-sm-7 col-lg-8">
 			<h4 class="card-title">{{this.title}}</h4>
-			<p class="card-text">Publié le {{getDisplayDateTime this.createdAt}} par <a href="/profil/{{this.ownerId}}">{{getUserFullname this.ownerId}}</a></p>
-			<div class="contributors">
-				<span>{{> contributeurs}}</span>
-			</div>
+			<p class="card-text-date">Publié le {{getDisplayDateTime this.createdAt}}</p>
+			<p class="card-text-author">par <a href="/profil/{{this.ownerId}}">{{getUserFullname this.ownerId}}</a></p>
+			
 		</div>
-		<aside class="card-body col-sm-4">
-			<a href="/ticket/{{this._id}}" class="btn btn-light btn-sm">Afficher</a>
+		<aside class="card-body col-sm-5 col-lg-4 d-flex flex-column justify-content-around ">
+			<a href="/ticket/{{this._id}}" class="btn btn-primary btn-sm ">Afficher le ticket</a>
+			<div class="contributors  mx-auto">
+				<span class="small">{{> contributeurs}}</span>
+			</div>
 			
 		</aside>
 	</div>
