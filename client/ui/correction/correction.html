@@ -1,22 +1,19 @@
 <template name="correction_form">
-	<div class="card">
-		<div class="card-body">
+	
+		<div class="mb-5">
 			<form class="js-create-correction">
 				
 				<label>Proposer une correction</label>
-				<textarea type="text" class="form-control mb-2" placeholder="Correction" name="content">{{ticket.content}}</textarea>
-				<button class="btn btn-success float-right">Envoyer</button>	
+				<div>
+					<textarea type="text" class="form-control mb-2" placeholder="Correction" name="content">{{ticket.content}}</textarea>
+					<button class="btn btn-success">Envoyer</button>
+				</div>
 				
 			</form>
 		</div>
-	</div>
+	
 </template>
 
-<template name="correction_proposition">
-	<article class="card my-2">
-		<button type="submit" class="btn-proposition-ticket btn btn-outline-info">Proposer une correction</button>
-	</article>
-</template>
 
 <template name="correction_accepted_list">
 	
@@ -42,12 +39,17 @@
 			<p class="{{#if statusAccepted this.status}}status-accepted{{/if}} 
 					  {{#if statusRefused this.status}}status-refused{{/if}}">{{this.status}}</p>
 			<h5 class="card-title">{{getUserFullname this.ownerId}}</h5>
-			<p class="card-text">{{transformContentCorrection this.content}}</p>
+			
+			<!--<a data-toggle="collapse"  data-target="#contentCorrection{{this._id}}">Voir plus</a>-->
+			
+			<!--<div class="collapse" id="contentCorrection{{this._id}}">-->
+				<p class="card-text">{{transformContentCorrection this.content}}</p>
+			<!--</div>-->
 			
 			{{#if statusPending this.status}}{{#if whoCanAppreciate}}
 			
-				<button class="js-accept-correction">Accepter</button>
-				<button class="js-refuse-correction">Refuser</button>
+				<button class="js-accept-correction btn btn-outline-success">Accepter</button>
+				<button class="js-refuse-correction btn btn-outline-danger">Refuser</button>
 			{{/if}}{{/if}}
 		</div>
 	</div>

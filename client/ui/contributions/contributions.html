@@ -1,37 +1,53 @@
 <template name="contributions">
 	<h2 class="py-4">Mes contributions</h2>
 	
-	<h4 class="py-4">Acceptées</h4>
-	{{#each contribution in contributionsAccepted}}
-	
-		{{> contribution_single contribution=contribution}}
-	
-	{{/each}}
-	
-	<h4 class="py-4">En attente</h4>
-	{{#each contribution in contributionsPending}}
-	
-		{{> contribution_single contribution=contribution}}
-	
-	{{/each}}
-	
-	<h4 class="py-4">Refusées</h4>
-	{{#each contribution in contributionsRefused}}
-	
-		{{> contribution_single contribution=contribution}}
-	
-	{{/each}}
+	<div class="containerContributions row">
+		<article class="col-4">
+			<h4 class="py-2 text-success">Acceptées</h4>
+			{{#each contribution in contributionsAccepted}}
+
+				{{> contribution_single contribution=contribution}}
+
+			{{/each}}
+		</article>
+		
+		<article class="col-4">
+			<h4 class="py-2 text-primary">En attente</h4>
+			{{#each contribution in contributionsPending}}
+
+				{{> contribution_single contribution=contribution}}
+
+			{{/each}}
+		</article>
+
+		<article class="col-4">
+		<h4 class="py-2 text-danger">Refusées</h4>
+			{{#each contribution in contributionsRefused}}
+
+				{{> contribution_single contribution=contribution}}
+
+			{{/each}}
+		</article>
+	</div>
 </template>
 
 
 
 <template name="contribution_single">
-	<div class="card my-2 	{{#if statusAccepted contribution.status}}contribution-accepted{{/if}}
-							{{#if statusPending contribution.status}}contribution-pending{{/if}}
-							{{#if statusRefused contribution.status}}contribution-refused{{/if}}">
-		<div class="card-body d-flex justify-content-between">
-			<p class="card-text">{{contribution.content}}</p>
-			<a href="/ticket/{{contribution.ticketId}}" class="btn btn-light">Afficher le ticket</a>
+	<div class="card my-2">
+		<div class="card-body">
+			<!--<p class="card-text">{{contribution.content}}</p>-->
+			<p class="card-text-date">{{getDisplayDateTime this.createdAt}}</p>
+			<a href="/ticket/{{contribution.ticketId}}" 
+			   class="btn 
+		{{#if statusAccepted contribution.status}}btn-outline-success
+					  {{else}}
+		{{#if statusPending contribution.status}}btn-outline-primary
+					  {{else}}
+		{{#if statusRefused contribution.status}}btn-outline-danger{{/if}}
+					  {{/if}}{{/if}}">
+				Afficher le ticket
+			</a>
 		</div>
 	</div>
 </template>
