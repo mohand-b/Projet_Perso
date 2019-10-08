@@ -8,16 +8,13 @@ import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 Template.navbar.events({
 	'click .current_user'(event, instance)
 	{
-		FlowRouter.go('/profil')	
+		FlowRouter.go('/profil/:id', {id:Meteor.userId()})
 	},
 	'click .ladder-js'(event, instance)
 	{
 		FlowRouter.go('/ladder')
 	},
-	'click .mytickets-js'(event, instance)
-	{
-		FlowRouter.go('/mytickets')
-	},
+
 	'click .contributions-js'(event, instance)
 	{
 		FlowRouter.go('/mycontributions')	

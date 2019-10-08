@@ -1,29 +1,38 @@
 <!-- TICKET_PAGE -->
 <template name="ticket_page">
-	<article>
-		<div class="card my-2">
+	<section class="row">
+		<div class="col-6">
+		{{> correction_form}}
+		{{> correction_accepted_list}}
+		</div>
+		
+	<div class="col-6">
+		<div class="card">
 			<div class="card-body">
-				<div class="text-center">
-					<h2 class="card-title">{{ticket.title}}</h2>
+		
+				<div class="headerCard d-flex justify-content-between">
+					<p class="card-text-author">{{getUserFullname  ticket.ownerId}}</p>
+					<p class="card-text-date">{{getDisplayDateTime ticket.createdAt}}</p>					
+				</div>
+				
+				<h3>{{ticket.title}}</h3>
+
+				<p class="small">Modifié {{ticket.counterEdit}} fois</p>
 					
-					<h6 class="card-subtitle text-muted mb-2">Publié le {{getDisplayDateTime ticket.createdAt}} par <a href="/profil/{{ticket.ownerId}}">{{getUserFullname  ticket.ownerId}}</a></h6>
-					<p class="small">Modifié {{ticket.counterEdit}} fois</p>
-					
-					{{#if equals ticket.ownerId currentUser._id}}
+				
+				<p class="card-text text-justify" style="white-space: pre-line">{{ticket.content}}</p>
+				
+				
+				{{#if equals ticket.ownerId currentUser._id}}
 					<a href="/ticket/{{ticket._id}}/edit" class="btn btn-primary btn-sm mb-3">Modifier</a>
 					
 					<button class="btn btn-danger btn-sm mb-3 js-delete-ticket">Supprimer</button>
-					{{/if}}
-					<p class="card-text text-justify" style="white-space: pre-line">
-						{{ticket.content}}
-					</p>
-				</div>
+				{{/if}}
+				
 			</div>
 		</div>
-		{{> correction_form}}
-		{{> correction_proposition}}
-		{{> correction_accepted_list}}
-	</article>
+	</div>
+	</section>
 </template>
 
 <!-- TICKET_PROPOSITION -->
@@ -101,9 +110,7 @@
 			<div class="contributors  mx-auto">
 				<span class="small">{{> contributeurs}}</span>
 			</div>
-			 <v-btn class="mx-2" fab dark small color="primary">
-      <v-icon dark>mdi-minus</v-icon>
-    </v-btn>
+		
 			
 		</aside>
 	</div>

@@ -1,16 +1,37 @@
 <template name="profil">
-	<section class="profil">
+	<section class="row">
 		
-		<h2 class="py-4">Page du profil</h2>
-
-		<article>
-		
-			<img class="avatarProfil" src="https://www.zupimages.net/up/19/37/cqg4.png" alt="Photo de profil">
-
-			<p class="usernameProfil">{{profilInfos.username}}</p>
-			<p>Score : {{profilInfos.score}}</p>
+		<div class="infosProfil col-3">
 			
-		</article>
+			<img class="avatarProfil" src="https://www.coople.com/ch/wp-content/uploads/sites/3/2018/09/Profile-Pic-2.png" alt="Photo de profil">
+			
+			<p class="usernameProfil">{{profilInfos.username}}</p>
+			
+			
+			<p class="rankProfil">{{titleRank profilInfos.rank}}</p>
+			
+			<p class="contributionsProfil">{{countContributions}} contribution{{superieur countContributions}}</p>
+			
+			<p class="scoreProfil">Score : {{profilInfos.score}}</p>
+			
+			{{#if currentUserProfil}}
+				<a href="/mycontributions" class="btn btn-primary btn-sm ">Afficher mes contributions</a>
+			{{/if}}
+			
+		</div>
+		
+		<div class="col-8">
+			<h4 class="mb-4">Derniers tickets</h4>
+		
+			<article>
+				{{#each ticket in lastTickets}}
+					{{> ticket_single ticket}}
+				{{else}}
+				<h4>Aucun élément à afficher</h4>
+				{{/each}}
+			</article>
+			
+		</div>		
 		
 	</section>
 </template>
@@ -31,3 +52,4 @@
 		
 	</section>
 </template>
+

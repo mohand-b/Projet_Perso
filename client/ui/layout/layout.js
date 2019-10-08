@@ -2,7 +2,6 @@
 import '../navbar/navbar'
 import '../home/home'
 import '../ticket/ticket'
-import '../ticket/mytickets'
 import '../ladder/ladder'
 import '../profil/profil'
 import '../contributions/contributions'
