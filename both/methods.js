@@ -48,7 +48,7 @@ Meteor.methods({
 		console.log(ticket.id)
 	 },
 	
-	removeTicket(ticketId) {
+	closedTicket(ticketId) {
 		check(ticketId, String)
 		
 		if(!this.userId) {
@@ -59,8 +59,10 @@ Meteor.methods({
 		if(ticketFound.ownerId !== this.userId) {
 			throw new Meteor.Error('unauthorized', 'L\'utilisateur doit être l\'auteur du ticket')
 		}
-		
-		Tickets.remove({_id: ticketId})
+		if(ticketFound.open == true)
+			Tickets.update({_id: ticketId}, {$set: {open: false}})
+		else if(ticketFound.open == false)
+			Tickets.update({_id: ticketId}, {$set: {open: true}})
 	},
 	
 	insertCorrection(correction) {

@@ -72,7 +72,7 @@ ______________________________________________________*/
 .card-text-date {font-size: 0.8rem; color: rgba(0,0,0,0.5)}
 .card-text-author {font-size: 0.9rem}
 
-.contributors {}
+.ticket-closed {border: 1px solid red}
 
 /*______________________________________________________*/
 
@@ -87,7 +87,7 @@ ______________________________________________________*/
  | |__| (_) | |  | | |  __/ (__| |_| | (_) | | | \__ \
   \____\___/|_|  |_|  \___|\___|\__|_|\___/|_| |_|___/ */
    
-.form-control {height: 400px}
+.create-correction .form-control {height: 400px}
 
 .modal-correctionSended {text-align: center; padding: 20px; margin-top: 50%; background-color: rgba(196,255,201,1.00)}
 .bg-success {padding: 10px;}

@@ -49,6 +49,7 @@ jamgold:flow-animate-css@0.0.4
 jquery@1.11.11
 kadira:blaze-layout@2.3.0
 kadira:flow-router@2.1.1
+kostanos:meteor-css-toggle-switch@1.1.0
 launch-screen@1.1.1
 livedata@1.0.18
 localstorage@1.2.0

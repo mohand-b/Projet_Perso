@@ -1,7 +1,8 @@
+<!-- CORRECTION FORMULAIRE -->
 <template name="correction_form">
 	
 		<div class="mb-5">
-			<form class="js-create-correction">
+			<form class="js-create-correction create-correction">
 				
 				<label>Proposer une correction</label>
 				<div>
@@ -14,7 +15,7 @@
 	
 </template>
 
-
+<!-- LISTE CORRECTIONS -->
 <template name="correction_accepted_list">
 	
 	{{#if whoCanAppreciate}}
@@ -33,6 +34,7 @@
 
 </template>
 
+<!-- CORRECTION SINGLE -->
 <template name="correction_single">
 	<div class="card my-2">
 		<div class="card-body post-item" data-id="{{_id}}">
@@ -55,6 +57,7 @@
 	</div>
 </template>
 
+<!-- MODAL CORRECTION ENVOYEE -->
 <template name="correction_sended">
 
 	<div class="modal fade">
