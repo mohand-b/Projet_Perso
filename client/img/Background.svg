@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="1024px" viewBox="0 0 1440 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>Background</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="83.3333333%" gradientTransform="translate(0.500000,0.500000),scale(0.750000,1.000000),rotate(36.869898),translate(-0.500000,-0.500000)" id="radialGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <linearGradient x1="14.3681997%" y1="47.0660708%" x2="89.2130737%" y2="52.9339292%" id="linearGradient-2">
+            <stop stop-color="#43D2FE" offset="0%"></stop>
+            <stop stop-color="#20A6FC" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="DESIGN" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.07">
+        <g id="2.1_PROFIL">
+            <g id="Background" transform="translate(-280.000000, -488.000000)">
+                <rect fill="#EDEDED" x="171" y="399" width="1600" height="1200"></rect>
+                <rect id="Gradient" fill="url(#radialGradient-1)" style="mix-blend-mode: screen;" opacity="0.545006793" x="171" y="399" width="1600" height="1200"></rect>
+                <polygon id="Rectangle" fill="url(#linearGradient-2)" transform="translate(999.012959, 999.012959) rotate(135.000000) translate(-999.012959, -999.012959) " points="-138.304717 723.512959 2136.33064 723.512959 2136.33064 1274.51296 -138.304717 1274.51296"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

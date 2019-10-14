@@ -31,12 +31,10 @@
 	</div>
 </template>
 
-
-
 <template name="contribution_single">
 	<div class="card my-2">
 		<div class="card-body">
-			<!--<p class="card-text">{{contribution.content}}</p>-->
+			<p class="mb-1">{{attachedTicket this._id}}</p>
 			<p class="card-text-date">{{getDisplayDateTime this.createdAt}}</p>
 			<a href="/ticket/{{contribution.ticketId}}" 
 			   class="btn 

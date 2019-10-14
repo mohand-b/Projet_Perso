@@ -60,8 +60,10 @@ Meteor.publish('ticket.single', (ticketId) => {
 Meteor.publish('contributions', () => {
 	
 	let contributionCursor = Corrections.find({ownerId: Meteor.userId()})
+	let ticketCursor = Tickets.find()
 	
 	return [
+		ticketCursor,
 		contributionCursor
 	]
 }) // Contributions de l'utilisateur 

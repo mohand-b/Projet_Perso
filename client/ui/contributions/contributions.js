@@ -42,5 +42,9 @@ Template.contribution_single.helpers({
 	statusRefused(correctionStatus) {
 		return correctionStatus === "Refusée"
 	},
+	attachedTicket(correctionId) {
+		let ticketId = Corrections.findOne({_id: correctionId}).ticketId
+		return Tickets.findOne({_id:ticketId}).title
+	}
 	
 })
