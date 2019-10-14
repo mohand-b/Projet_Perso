@@ -6,7 +6,7 @@
 			<h4 class="py-2 text-success">Acceptées</h4>
 			{{#each contribution in contributionsAccepted}}
 
-				{{> contribution_single contribution=contribution}}
+				{{> contribution_single contribution}}
 
 			{{/each}}
 		</article>
@@ -15,7 +15,7 @@
 			<h4 class="py-2 text-primary">En attente</h4>
 			{{#each contribution in contributionsPending}}
 
-				{{> contribution_single contribution=contribution}}
+				{{> contribution_single contribution}}
 
 			{{/each}}
 		</article>
@@ -24,7 +24,7 @@
 		<h4 class="py-2 text-danger">Refusées</h4>
 			{{#each contribution in contributionsRefused}}
 
-				{{> contribution_single contribution=contribution}}
+				{{> contribution_single contribution}}
 
 			{{/each}}
 		</article>
@@ -36,13 +36,13 @@
 		<div class="card-body">
 			<p class="mb-1">{{attachedTicket this._id}}</p>
 			<p class="card-text-date">{{getDisplayDateTime this.createdAt}}</p>
-			<a href="/ticket/{{contribution.ticketId}}" 
+			<a href="/ticket/{{this.ticketId}}" 
 			   class="btn 
-		{{#if statusAccepted contribution.status}}btn-outline-success
+		{{#if statusAccepted this.status}}btn-outline-success
 					  {{else}}
-		{{#if statusPending contribution.status}}btn-outline-primary
+		{{#if statusPending this.status}}btn-outline-primary
 					  {{else}}
-		{{#if statusRefused contribution.status}}btn-outline-danger{{/if}}
+		{{#if statusRefused this.status}}btn-outline-danger{{/if}}
 					  {{/if}}{{/if}}">
 				Afficher le ticket
 			</a>
