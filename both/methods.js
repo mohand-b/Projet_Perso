@@ -2,9 +2,10 @@ import { Tickets, Corrections, ticketUpsertSchema, correctionUpsertSchema } from
 import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 import { check } from 'meteor/check' // vérifier le type (package meteor), amélioré avec le Simple Schema
 
-// Créer nous même les méthodes CRUD pour nos tickets pour sécuriser la communication à la bdd MongoDB
+// Créer nous même les méthodes pour sécuriser la communication à la bdd MongoDB
 Meteor.methods({
 	
+	// Créer un ticket
 	insertTicket(ticket) {
 		ticketUpsertSchema.validate(ticket) // vérifier les infos attendues
 		
@@ -24,6 +25,7 @@ Meteor.methods({
 		Tickets.insert(ticketDoc);
 	},
 	
+	// Modifier un ticket > Modifie le contenu
 	updateTicket(ticket) {
 		ticketUpsertSchema.validate(ticket)
 		
@@ -48,6 +50,7 @@ Meteor.methods({
 		console.log(ticket.id)
 	 },
 	
+	// Fermer un ticket > Modifie le status
 	closedTicket(ticketId) {
 		check(ticketId, String)
 		
@@ -65,6 +68,7 @@ Meteor.methods({
 			Tickets.update({_id: ticketId}, {$set: {open: true}})
 	},
 	
+	// Créer une correction
 	insertCorrection(correction) {
 		correctionUpsertSchema.validate(correction)
 		
@@ -88,7 +92,7 @@ Meteor.methods({
 		
 	},
 	
-	// Accepter une correction
+	// Accepter une correction > Modifie le status
 	acceptCorrection(correction) {
 	
 	if(!this.userId) {
@@ -134,7 +138,7 @@ Meteor.methods({
 			console.log('score updated')
 		}	},
 	
-	// Refuser une correction
+	// Refuser une correction > Modifie le status
 	refuseCorrection(correction) {
 	
 	if(!this.userId) {
@@ -152,6 +156,7 @@ Meteor.methods({
 				status: "Refusée"}
            }
        )
-	}
+	},
 	
 })
+

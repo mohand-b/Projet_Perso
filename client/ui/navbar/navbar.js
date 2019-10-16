@@ -10,6 +10,7 @@ Template.navbar.events({
 	{
 		FlowRouter.go('/profil/:id', {id:Meteor.userId()})
 	},
+	
 	'click .ladder-js'(event, instance)
 	{
 		FlowRouter.go('/ladder')

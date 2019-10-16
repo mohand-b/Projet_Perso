@@ -94,7 +94,7 @@ Template.ticket_single.onCreated(function() {
 Template.ticket_page.helpers({
 	// Ticket affiché sur la page
 	ticket() {
-		return Tickets.findOne({_id: FlowRouter.getParam('ticketId')});
+		return Tickets.findOne({_id: FlowRouter.getParam('ticketId')})
 	},
 	openTicket(statusTicket) {
 	return statusTicket === true
@@ -104,9 +104,8 @@ Template.ticket_page.helpers({
 Template.ticket_list.helpers({
 	// Liste des tickets triés par date
 	tickets() {
-		return Tickets.find({}, { sort: {createdAt: -1}}).fetch();
+		return Tickets.find({}, { sort: {createdAt: -1}}).fetch()
 	},
-	
 })
 
 Template.ticket_edit_form.helpers({

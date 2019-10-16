@@ -3,6 +3,7 @@ import { check } from 'meteor/check'
 
 // Données du serveur publiées à l'utilisateur
 
+// publication des données du profil
 Meteor.publish('profil', (userId) => {
 	check(userId, String)
 	
@@ -11,7 +12,6 @@ Meteor.publish('profil', (userId) => {
 	return [
 		userCursor
 	]
-	
 })
 
 Meteor.publish('tickets.list', (/*skip, limit*/) => {

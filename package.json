@@ -17,10 +17,7 @@
     "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "simpl-schema": "^1.5.5",
-    "vue": "^2.6.10",
-    "vue-meteor-tracker": "^2.0.0-beta.5",
-    "vuetify": "^2.1.1"
+    "simpl-schema": "^1.5.5"
   },
   "meteor": {
     "mainModule": {

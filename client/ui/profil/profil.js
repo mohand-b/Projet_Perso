@@ -20,6 +20,7 @@ Template.profil.onCreated(function() {
 
 
 
+
 // ----------- HELPERS
 
 Template.profil.helpers({
